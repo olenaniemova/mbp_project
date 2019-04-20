@@ -38,6 +38,10 @@
           <li class="nav-item">
             <%= link_to 'Articles', articles_path, class: 'nav-link' %>
           </li>
+          <li class="nav-item">
+            <%= link_to 'Article Categories', article_categories_path, class: 'nav-link' %>
+          </li>
+
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Dropdown
@@ -64,7 +68,9 @@
     <!-- HEADER -->
 
 
+  <div class="container">
     <%= yield %>
+  </div>
 
 
   </body>

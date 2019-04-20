@@ -6,4 +6,7 @@ class Article < ApplicationRecord
   validates :text, presence: true
   validates :source, presence: true
   scope :published, -> { where(published: true) }
+
+  has_many :articles_category
+  has_many :article_category, through: :articles_category
 end

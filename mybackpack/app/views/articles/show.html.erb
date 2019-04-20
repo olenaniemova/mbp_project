@@ -1,11 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container">
   <h2><%= @article.title %></h2>
 
   <div>
     <%= @article.text %>
   </div>
+
+  <p>
+    <strong>Categories: </strong>
+      <% @article.article_category.each do |category| %>
+        <%= category.title %>
+      <% end %>
+  </p>
 
   <p>
     <strong>Source:</strong>
@@ -17,4 +23,3 @@
     <%= link_to 'Destroy', @article, method: :delete, data: { confirm: 'Are you sure?' } %>
   </p>
   <p><%= link_to 'Back', articles_path %></p>
-</div>
