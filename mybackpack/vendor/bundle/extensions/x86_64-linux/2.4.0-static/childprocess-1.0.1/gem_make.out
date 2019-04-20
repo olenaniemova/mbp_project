@@ -1,0 +1,5 @@
+current directory: /home/lena/projects/mbp/mbp_project/mybackpack/vendor/bundle/gems/childprocess-1.0.1/ext
+/home/lena/.rbenv/versions/2.4.1/bin/ruby mkrf_conf.rb
+
+current directory: /home/lena/projects/mbp/mbp_project/mybackpack/vendor/bundle/gems/childprocess-1.0.1/ext
+/home/lena/.rbenv/versions/2.4.1/bin/ruby -rubygems /home/lena/projects/mbp/mbp_project/mybackpack/vendor/bundle/gems/rake-12.3.2/exe/rake RUBYARCHDIR=/home/lena/projects/mbp/mbp_project/mybackpack/vendor/bundle/extensions/x86_64-linux/2.4.0-static/childprocess-1.0.1 RUBYLIBDIR=/home/lena/projects/mbp/mbp_project/mybackpack/vendor/bundle/extensions/x86_64-linux/2.4.0-static/childprocess-1.0.1
