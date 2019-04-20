@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <h2><%= @article.title %></h2>
+
+  <div>
+    <%= @article.text %>
+  </div>
+
+  <p>
+    <strong>Source:</strong>
+    <%= @article.source %>
+  </p>
+
+  <p>
+    <%= link_to 'Edit', edit_article_path(@article) %> |
+    <%= link_to 'Destroy', @article, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </p>
+  <p><%= link_to 'Back', articles_path %></p>
+</div>

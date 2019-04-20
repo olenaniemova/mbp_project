@@ -1,0 +1,13 @@
+current directory: /home/lena/projects/mbp_project/mybackpack/vendor/bundle/gems/json-2.2.0/ext/json
+/home/lena/.rbenv/versions/2.4.1/bin/ruby -r ./siteconf20190420-5655-1keabhw.rb extconf.rb
+creating Makefile
+
+current directory: /home/lena/projects/mbp_project/mybackpack/vendor/bundle/gems/json-2.2.0/ext/json
+make "DESTDIR=" clean
+
+current directory: /home/lena/projects/mbp_project/mybackpack/vendor/bundle/gems/json-2.2.0/ext/json
+make "DESTDIR="
+make: Nothing to be done for 'all'.
+
+current directory: /home/lena/projects/mbp_project/mybackpack/vendor/bundle/gems/json-2.2.0/ext/json
+make "DESTDIR=" install

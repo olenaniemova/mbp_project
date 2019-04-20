@@ -1,0 +1,23 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/lena/projects/mbp_project/mybackpack/app/models/article.rb": [
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/home/lena/projects/mbp_project/mybackpack/app/models/application_record.rb": [
+        1,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1555777625
+  }
+}

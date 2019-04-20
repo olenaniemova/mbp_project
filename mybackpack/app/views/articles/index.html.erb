@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+
+  <h1>Articles</h1>
+  <div>
+    <%= link_to 'New Article', new_article_path %>
+  </div>
+
+  <!--<table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Text</th>
+        <th>Source</th>
+        <th>Published</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @articles.each do |article| %>
+        <tr>
+          <td><%= article.title %></td>
+          <td><%= article.text %></td>
+          <td><%= article.source %></td>
+          <td><%= article.published %></td>
+          <td><%= link_to 'Show', article %></td>
+          <td><%= link_to 'Edit', edit_article_path(article) %></td>
+          <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>-->
+
+  <div>
+    <% @articles.each do |article| %>
+      <div>
+        <h4><%= article.title %></h4>
+        <p><%= truncate(article.text, :length => 200, :separator => ' ')%> <%= link_to 'Read more', article %></p>
+      </div>
+    <% end %>
+  </div>
+
+</div>
+
