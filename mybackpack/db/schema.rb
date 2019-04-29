@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_20_205709) do
+ActiveRecord::Schema.define(version: 2019_04_26_170649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,4 +39,65 @@ ActiveRecord::Schema.define(version: 2019_04_20_205709) do
     t.index ["article_id"], name: "index_articles_categories_on_article_id"
   end
 
+  create_table "chains", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "food_categories", force: :cascade do |t|
+    t.string "title", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "food_types", force: :cascade do |t|
+    t.string "title", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "foods", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description", null: false
+    t.text "source", null: false
+    t.integer "caloric", null: false
+    t.float "weight", null: false
+    t.float "volume", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "food_type_id", null: false
+    t.bigint "food_category_id", null: false
+    t.bigint "producer_id", null: false
+  end
+
+  create_table "producers", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "settlement_types", force: :cascade do |t|
+    t.string "title", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "settlements", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description", null: false
+    t.decimal "elevation", null: false
+    t.bigint "settlement_type_id", null: false
+    t.bigint "chain_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "foods", "food_categories"
+  add_foreign_key "foods", "food_types"
+  add_foreign_key "foods", "producers"
+  add_foreign_key "settlements", "chains"
+  add_foreign_key "settlements", "settlement_types"
 end

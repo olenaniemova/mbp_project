@@ -9,13 +9,14 @@
   <p>
     <strong>Categories: </strong>
       <% @article.article_category.each do |category| %>
-        <%= category.title %>
+      <%= link_to category.title, article_category_url %>
+      <!-- ПЕРЕХОДИТЬ ТІЛЬКИ НА 1 категорію -->
       <% end %>
   </p>
 
   <p>
     <strong>Source:</strong>
-    <%= @article.source %>
+    <%= link_to @article.source, @article.source %>
   </p>
 
   <p>

@@ -5,5 +5,11 @@
   <%= @article_category.title %>
 </p>
 
+<div>
+  <% @article_category.article.each do |article| %>
+    <p><%= link_to article.title, article_url %></p>
+  <% end %>
+</div>
+
 <%= link_to 'Edit', edit_article_category_path(@article_category) %> |
 <%= link_to 'Back', article_categories_path %>

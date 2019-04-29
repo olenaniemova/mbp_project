@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Settlement Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @settlement_types.each do |settlement_type| %>
+      <tr>
+        <td><%= settlement_type.title %></td>
+        <td><%= link_to 'Show', settlement_type %></td>
+        <td><%= link_to 'Edit', edit_settlement_type_path(settlement_type) %></td>
+        <td><%= link_to 'Destroy', settlement_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Settlement Type', new_settlement_type_path %>

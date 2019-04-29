@@ -1,0 +1,17 @@
+<%= form_with(model: chain, local: true) do |form| %>
+  <% if chain.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(chain.errors.count, "error") %> prohibited this chain from being saved:</h2>
+
+      <ul>
+      <% chain.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -24,6 +24,23 @@ ArticlesCategory.create(article_id: a1.id, article_category_id: c1.id)
 ArticlesCategory.create(article_id: a1.id, article_category_id: c2.id)
 ArticlesCategory.create(article_id: a2.id, article_category_id: c1.id)
 
+ft1 = FoodType.create(title: 'Суха')
+ft2 = FoodType.create(title: 'Сублімована')
+FoodType.create(title: 'Сира')
+
+fc1 = FoodCategory.create(title: 'Каша')
+fc2 = FoodCategory.create(title: 'Суп')
+FoodCategory.create(title: 'Консерва')
+
+p1 = Producer.create(title: 'ЇDLO', description: 'ЇDLO text')
+p2 = Producer.create(title: 'ЇDLO 2', description: 'ЇDLO tex 22222222222222 t')
+
+Food.create(title: 'Каша з яловичиною', description: 'Каша з найсмачнішою яловичиною',
+ source: 'http://idlo.com', caloric: 350, weight: 0.1, volume: 0.1, food_type_id: ft1.id,
+ food_category_id: fc1.id, producer_id: p1.id)
+Food.create(title: 'Картопля з яловичиною', description: 'Картопля з найсмачнішою яловичиною',
+ source: 'http://idlo.com', caloric: 450, weight: 0.1, volume: 0.1, food_type_id: ft2.id,
+ food_category_id: fc1.id, producer_id: p2.id)
 
 #country_list = [
 #  [ "Germany", 81831000 ],
