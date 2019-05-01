@@ -5,5 +5,11 @@
   <%= @settlement_type.title %>
 </p>
 
+<div>
+  <% @settlement_type.settlement.each do |settlement| %>
+    <p><%= link_to settlement.title, settlement_url %></p>
+  <% end %>
+</div>
+
 <%= link_to 'Edit', edit_settlement_type_path(@settlement_type) %> |
 <%= link_to 'Back', settlement_types_path %>

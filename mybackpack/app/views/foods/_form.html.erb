@@ -43,6 +43,17 @@
 
   <div class="select">
     <%= form.label :food_type %>
+    <%= form.collection_select(:food_type_id, FoodType.all, :id, :title) %>
+  </div>
+
+  <div class="select">
+    <%= form.label :food_category %>
+    <%= form.collection_select(:food_category_id, FoodCategory.all, :id, :title) %>
+  </div>
+
+  <div class="select">
+    <%= form.label :producer %>
+    <%= form.collection_select(:producer_id, Producer.all, :id, :title) %>
   </div>
 
   <div class="actions">

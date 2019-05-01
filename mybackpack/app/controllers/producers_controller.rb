@@ -1,28 +1,18 @@
 class ProducersController < ApplicationController
   before_action :set_producer, only: [:show, :edit, :update, :destroy]
 
-  # GET /producers
-  # GET /producers.json
   def index
     @producers = Producer.all
   end
 
-  # GET /producers/1
-  # GET /producers/1.json
-  def show
-  end
+  def show; end
 
-  # GET /producers/new
   def new
     @producer = Producer.new
   end
 
-  # GET /producers/1/edit
-  def edit
-  end
+  def edit; end
 
-  # POST /producers
-  # POST /producers.json
   def create
     @producer = Producer.new(producer_params)
 
@@ -37,8 +27,6 @@ class ProducersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /producers/1
-  # PATCH/PUT /producers/1.json
   def update
     respond_to do |format|
       if @producer.update(producer_params)
@@ -51,8 +39,6 @@ class ProducersController < ApplicationController
     end
   end
 
-  # DELETE /producers/1
-  # DELETE /producers/1.json
   def destroy
     @producer.destroy
     respond_to do |format|
@@ -62,12 +48,11 @@ class ProducersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_producer
       @producer = Producer.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def producer_params
       params.require(:producer).permit(:title, :description)
     end

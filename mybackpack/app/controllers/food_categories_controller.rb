@@ -1,28 +1,18 @@
 class FoodCategoriesController < ApplicationController
   before_action :set_food_category, only: [:show, :edit, :update, :destroy]
 
-  # GET /food_categories
-  # GET /food_categories.json
   def index
     @food_categories = FoodCategory.all
   end
 
-  # GET /food_categories/1
-  # GET /food_categories/1.json
-  def show
-  end
+  def show; end
 
-  # GET /food_categories/new
   def new
     @food_category = FoodCategory.new
   end
 
-  # GET /food_categories/1/edit
-  def edit
-  end
+  def edit; end
 
-  # POST /food_categories
-  # POST /food_categories.json
   def create
     @food_category = FoodCategory.new(food_category_params)
 
@@ -37,8 +27,6 @@ class FoodCategoriesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /food_categories/1
-  # PATCH/PUT /food_categories/1.json
   def update
     respond_to do |format|
       if @food_category.update(food_category_params)
@@ -51,8 +39,6 @@ class FoodCategoriesController < ApplicationController
     end
   end
 
-  # DELETE /food_categories/1
-  # DELETE /food_categories/1.json
   def destroy
     @food_category.destroy
     respond_to do |format|
@@ -62,12 +48,11 @@ class FoodCategoriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_food_category
       @food_category = FoodCategory.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def food_category_params
       params.require(:food_category).permit(:title)
     end

@@ -6,4 +6,5 @@ class Producer < ApplicationRecord
   validates :description, presence: true
 
   has_many :food
+  has_many :item
 end

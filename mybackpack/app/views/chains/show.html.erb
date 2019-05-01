@@ -1,4 +1,21 @@
 <p id="notice"><%= notice %></p>
 
+<h2><%= @chain.title %></h2>
+
+<div>
+  <%= @chain.description %>
+</div>
+
+<p>Settlements: </p>
+<div>
+  <% @chain.settlement.each do |settlement| %>
+    <p><%= link_to settlement.title, settlement_url %></p>
+  <% end %>
+</div>
+
+
+<p>Places: </p>
+<p>Routes: </p>
+
 <%= link_to 'Edit', edit_chain_path(@chain) %> |
 <%= link_to 'Back', chains_path %>

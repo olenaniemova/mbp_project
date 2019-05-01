@@ -1,0 +1,67 @@
+<%= form_with(model: item, local: true) do |form| %>
+  <% if item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :weight %>
+    <%= form.text_field :weight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :volume %>
+    <%= form.text_field :volume %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :source %>
+    <%= form.text_field :source %>
+  </div>
+
+  <div class="field">
+    <%= form.label :individualy %>
+    <%= form.check_box :individualy %>
+  </div>
+
+  <div class="field">
+    <%= form.label :object_category_id %>
+    <%= form.text_field :object_category_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :object_importance_id %>
+    <%= form.text_field :object_importance_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :season_id %>
+    <%= form.text_field :season_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :producer_id %>
+    <%= form.text_field :producer_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :items
+  resources :weather_types
+  resources :object_categories
+  resources :object_importances
+  resources :seasons
+  resources :routes
+  resources :complexities
   resources :settlements
   resources :settlement_types
   resources :chains

@@ -11,6 +11,18 @@
     </div>
   <% end %>
 
+   <div class="form-group">
+    <%= form.label :title, for: 'Title', class: 'bmd-label-floating' %>
+    <%= form.text_field :title, class: 'form-control', id: 'Title' %>
+    <span class="bmd-help">We'll never share your email with anyone else.</span>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :description, for: 'Description', class: 'bmd-label-floating' %>
+    <%= form.text_area :description, class: 'form-control', id: 'Description' %>
+    <span class="bmd-help">We'll never share your email with anyone else.</span>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

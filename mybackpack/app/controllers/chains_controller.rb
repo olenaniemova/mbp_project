@@ -1,28 +1,18 @@
 class ChainsController < ApplicationController
   before_action :set_chain, only: [:show, :edit, :update, :destroy]
 
-  # GET /chains
-  # GET /chains.json
   def index
     @chains = Chain.all
   end
 
-  # GET /chains/1
-  # GET /chains/1.json
-  def show
-  end
+  def show; end
 
-  # GET /chains/new
   def new
     @chain = Chain.new
   end
 
-  # GET /chains/1/edit
-  def edit
-  end
+  def edit; end
 
-  # POST /chains
-  # POST /chains.json
   def create
     @chain = Chain.new(chain_params)
 
@@ -37,8 +27,6 @@ class ChainsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /chains/1
-  # PATCH/PUT /chains/1.json
   def update
     respond_to do |format|
       if @chain.update(chain_params)
@@ -51,8 +39,6 @@ class ChainsController < ApplicationController
     end
   end
 
-  # DELETE /chains/1
-  # DELETE /chains/1.json
   def destroy
     @chain.destroy
     respond_to do |format|
@@ -62,13 +48,12 @@ class ChainsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_chain
       @chain = Chain.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def chain_params
-      params.fetch(:chain, {})
+      params.require(:chain).permit(:title, :description)
     end
 end

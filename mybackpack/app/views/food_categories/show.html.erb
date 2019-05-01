@@ -5,5 +5,11 @@
   <%= @food_category.title %>
 </p>
 
+<div>
+  <% @food_category.food.each do |food| %>
+    <p><%= link_to food.title, food_url %></p>
+  <% end %>
+</div>
+
 <%= link_to 'Edit', edit_food_category_path(@food_category) %> |
 <%= link_to 'Back', food_categories_path %>

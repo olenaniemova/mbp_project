@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @item.title %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @item.weight %>
+</p>
+
+<p>
+  <strong>Volume:</strong>
+  <%= @item.volume %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @item.description %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @item.source %>
+</p>
+
+<p>
+  <strong>Individualy:</strong>
+  <%= @item.individualy %>
+</p>
+
+<p>
+  <strong>Object category:</strong>
+  <%= @item.object_category_id %>
+</p>
+
+<p>
+  <strong>Object importance:</strong>
+  <%= @item.object_importance_id %>
+</p>
+
+<p>
+  <strong>Season:</strong>
+  <%= @item.season_id %>
+</p>
+
+<p>
+  <strong>Producer:</strong>
+  <%= @item.producer_id %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

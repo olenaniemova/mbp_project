@@ -9,8 +9,7 @@
   <p>
     <strong>Categories: </strong>
       <% @article.article_category.each do |category| %>
-      <%= link_to category.title, article_category_url %>
-      <!-- ПЕРЕХОДИТЬ ТІЛЬКИ НА 1 категорію -->
+      <%= link_to category.title, article_category_path(category) %>
       <% end %>
   </p>
 

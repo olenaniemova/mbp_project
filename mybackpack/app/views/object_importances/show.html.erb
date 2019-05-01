@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @object_importance.title %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @object_importance.value %>
+</p>
+
+<%= link_to 'Edit', edit_object_importance_path(@object_importance) %> |
+<%= link_to 'Back', object_importances_path %>

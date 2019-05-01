@@ -42,6 +42,45 @@ Food.create(title: 'Картопля з яловичиною', description: 'К�
  source: 'http://idlo.com', caloric: 450, weight: 0.1, volume: 0.1, food_type_id: ft2.id,
  food_category_id: fc1.id, producer_id: p2.id)
 
+st1 = SettlementType.create(title: 'Місто')
+st2 = SettlementType.create(title: 'Село')
+
+ch1 = Chain.create(title: 'Чорногора', description: lorem)
+ch2 = Chain.create(title: 'Мармароси', description: lorem)
+
+s1 = Settlement.create(title: 'Ворохта', description: lorem, elevation: 956.5,
+  settlement_type_id: st1.id, chain_id: ch1.id)
+
+c1 = Complexity.create(title: 'Легка', description: 'Легка прилегка', value: 1)
+c3 = Complexity.create(title: 'Середня', description: 'Середня', value: 3)
+c7 = Complexity.create(title: 'Важка', description: 'Дуже важка', value: 7)
+
+route1 = Route.create(title: 'Чорногора', description: 'вложд влаж іл',
+  start_date: '2019-05-01 12:02:00', end_date: '2019-05-05 12:02:00', duration: 3,
+  chain_id: ch1.id, user_id: 1, settlement_dep: s1.id, settlement_arr: s1.id,
+  complexity_id: c3.id)
+
+Route.create(title: "1111", description: "111111", start_date: "2019-05-01 12:02:00",
+end_date: "2019-05-01 12:02:00", duration: 5, chain_id: 1, user_id: 1,
+complexity_id: 2, publication: true, settlement_dep: 1, settlement_arr: 1)
+
+
+season1 = Season.create(title: 'Літо')
+season2 = Season.create(title: 'Зима')
+
+oi1 = ObjectImportance.create(title: 'Не обовязкова', value: 1)
+oi2 = ObjectImportance.create(title: 'Важлива', value: 5)
+
+oc1 = ObjectCategory.create(title: 'Одяг')
+oc2 = ObjectCategory.create(title: 'Кухня')
+
+wt1 = WeatherType.create(title: '11')
+wt2 = WeatherType.create(title: '22')
+
+item1 = Item.create(title: 'Item 1', weight: 0.1, volume: 0.1, description: lorem,
+  source: 'http://#', individualy: true, object_category_id: oc1.id,
+  object_importance_id: oi1.id, season_id: season1.id, producer_id: p2.id)
+
 #country_list = [
 #  [ "Germany", 81831000 ],
 #  [ "France", 65447374 ],

@@ -10,5 +10,12 @@
   <%= @producer.description %>
 </p>
 
+<p><strong>Items:</strong></p>
+<div>
+  <% @producer.food.each do |food| %>
+    <p><%= link_to food.title, food_url %></p>
+  <% end %>
+</div>
+
 <%= link_to 'Edit', edit_producer_path(@producer) %> |
 <%= link_to 'Back', producers_path %>

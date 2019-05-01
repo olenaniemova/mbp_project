@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Object Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @object_categories.each do |object_category| %>
+      <tr>
+        <td><%= object_category.title %></td>
+        <td><%= link_to 'Show', object_category %></td>
+        <td><%= link_to 'Edit', edit_object_category_path(object_category) %></td>
+        <td><%= link_to 'Destroy', object_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Object Category', new_object_category_path %>

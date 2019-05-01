@@ -16,6 +16,26 @@
     <%= form.text_field :title %>
   </div>
 
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :elevation %>
+    <%= form.text_field :elevation %>
+  </div>
+
+  <div class="select">
+    <%= form.label :settlement_type %>
+    <%= form.collection_select(:settlement_type_id, SettlementType.all, :id, :title) %>
+  </div>
+
+  <div class="select">
+    <%= form.label :chain %>
+    <%= form.collection_select(:chain_id, Chain.all, :id, :title) %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

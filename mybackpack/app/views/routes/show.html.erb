@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @route.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @route.description %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @route.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @route.end_date %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @route.duration %>
+</p>
+
+<p>
+  <strong>Chain:</strong>
+  <%= @route.chain_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @route.user_id %>
+</p>
+
+<p>
+  <strong>Complexity:</strong>
+  <%= @route.complexity_id %>
+</p>
+
+<p>
+  <strong>Publication:</strong>
+  <%= @route.publication %>
+</p>
+
+<p>
+  <strong>Settlement dep:</strong>
+  <%= @route.settlement_dep %>
+</p>
+
+<p>
+  <strong>Settlement arr:</strong>
+  <%= @route.settlement_arr %>
+</p>
+
+<%= link_to 'Edit', edit_route_path(@route) %> |
+<%= link_to 'Back', routes_path %>
