@@ -96,6 +96,11 @@ item1 = Item.create(title: 'Item 1', weight: 0.1, volume: 0.1, description: lore
 ItemsWeatherType.create(item_id: item1.id, weather_type_id: wt1.id)
 ItemsWeatherType.create(item_id: item1.id, weather_type_id: wt2.id)
 
+condition_list = [ 'Не займаюся спортом', 'Займаюся тільки сезонними видами спорту',
+'Регулярно відвідую спортзал', 'Регулярно займаюся спортом']
+condition_list.each do |title|
+  PhysicalCondition.create(title: title)
+end
 
 #country_list = [
 #  [ "Germany", 81831000 ],

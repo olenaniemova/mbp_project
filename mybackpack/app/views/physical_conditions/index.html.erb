@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Physical Conditions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @physical_conditions.each do |physical_condition| %>
+      <tr>
+        <td><%= physical_condition.title %></td>
+        <td><%= link_to 'Show', physical_condition %></td>
+        <td><%= link_to 'Edit', edit_physical_condition_path(physical_condition) %></td>
+        <td><%= link_to 'Destroy', physical_condition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Physical Condition', new_physical_condition_path %>

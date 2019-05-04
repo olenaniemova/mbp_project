@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :physical_conditions
+  devise_for :users
+  root to: "articles#index"
+
   resources :route_statuses
   resources :items
   resources :weather_types
