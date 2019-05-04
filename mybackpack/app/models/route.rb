@@ -15,10 +15,11 @@ class Route < ApplicationRecord
   validates :settlement_arr, presence: true
 
   scope :published, -> { where(published: true) }
+  scope :settlement_title, ->(id) { Settlement.find(id).title }
 
   belongs_to :chain
   belongs_to :complexity
-  # belongs_to :settlement
+  belongs_to :route_status
 
   has_many :route_place
   has_many :settlement, through: :route_place

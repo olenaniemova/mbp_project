@@ -56,15 +56,21 @@
     <%= form.check_box :publication %>
   </div>
 
-  <div class="field">
-    <%= form.label :settlement_dep %>
-    <%= form.text_field :settlement_dep %>
+  <div class="form-group">
+    <%= form.label :settlement_dep, value: 'Departure', class: 'bmd-label-floating' %>
+    <%= form.select(:settlement_dep, options_from_collection_for_select(Settlement.all.sort_by{ |c| c.title }, :id, :title, {:selected => route.settlement_dep}), {}, {:class => 'form-control'})%>
   </div>
 
-  <div class="field">
-    <%= form.label :settlement_arr %>
-    <%= form.text_field :settlement_arr %>
+  <div class="form-group">
+    <%= form.label :settlement_arr, value: 'Arrival', class: 'bmd-label-floating' %>
+    <%= form.select(:settlement_arr, options_from_collection_for_select(Settlement.all.sort_by{ |c| c.title }, :id, :title, {:selected => route.settlement_arr}), {}, {:class => 'form-control'})%>
   </div>
+
+  <div class="form-group">
+    <%= form.label :route_status_id, value: 'Route status', class: 'bmd-label-floating' %>
+    <%= form.select(:route_status_id, options_from_collection_for_select(RouteStatus.all.sort_by{ |c| c.title }, :id, :title, {:selected => route.route_status_id}), {}, {:class => 'form-control'})%>
+  </div>
+
 
   <div class="actions">
     <%= form.submit %>

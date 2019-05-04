@@ -11,57 +11,75 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="form-group">
+    <%= form.label :title, for: 'Title', class: 'bmd-label-floating' %>
+    <%= form.text_field :title, class: 'form-control', id: 'Title' %>
+    <span class="bmd-help">We'll never share your email with anyone else.</span>
   </div>
 
-  <div class="field">
-    <%= form.label :weight %>
-    <%= form.text_field :weight %>
+  <div class="form-group">
+    <%= form.label :description, for: 'Description', class: 'bmd-label-floating' %>
+    <%= form.text_area :description, class: 'form-control', id: 'Description' %>
+    <span class="bmd-help">We'll never share your email with anyone else.</span>
   </div>
 
-  <div class="field">
-    <%= form.label :volume %>
-    <%= form.text_field :volume %>
+  <div class="form-group">
+    <%= form.label :weight, for: 'Weight', class: 'bmd-label-floating' %>
+    <%= form.text_field :weight, class: 'form-control', id: 'Weight' %>
+    <span class="bmd-help">We'll never share your email with anyone else.</span>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="form-group">
+    <%= form.label :volume, for: 'Volume', class: 'bmd-label-floating' %>
+    <%= form.text_field :volume, class: 'form-control', id: 'Volume' %>
+    <span class="bmd-help">We'll never share your email with anyone else.</span>
   </div>
 
-  <div class="field">
-    <%= form.label :source %>
-    <%= form.text_field :source %>
+  <div class="form-group">
+    <%= form.label :source, for: 'Source', class: 'bmd-label-floating' %>
+    <%= form.text_field :source, class: 'form-control', id: 'Source' %>
+    <span class="bmd-help">We'll never share your email with anyone else.</span>
   </div>
 
-  <div class="field">
-    <%= form.label :individualy %>
-    <%= form.check_box :individualy %>
+  <div class="checkbox">
+    <label><%= form.check_box :individualy %> Individual</label>
   </div>
 
-  <div class="field">
-    <%= form.label :object_category_id %>
-    <%= form.text_field :object_category_id %>
+  <div class="form-group">
+    <%= form.label :object_category_id, value: 'Object category', class: 'bmd-label-floating' %>
+    <%= form.select(:object_category_id, options_from_collection_for_select(ObjectCategory.all.sort_by{ |c| c.title }, :id, :title, {:selected => item.object_category_id}), {}, {:class => 'form-control'})%>
   </div>
 
-  <div class="field">
-    <%= form.label :object_importance_id %>
-    <%= form.text_field :object_importance_id %>
+  <div class="form-group">
+    <%= form.label :object_importance_id, value: 'Object importance', class: 'bmd-label-floating' %>
+    <%= form.select(:object_importance_id, options_from_collection_for_select(ObjectImportance.all.sort_by{ |c| c.title }, :id, :title, {:selected => item.object_importance_id}), {}, {:class => 'form-control'})%>
   </div>
 
-  <div class="field">
-    <%= form.label :season_id %>
-    <%= form.text_field :season_id %>
+  <div class="form-group">
+    <%= form.label :season_id, value: 'Season', class: 'bmd-label-floating' %>
+    <%= form.select(:season_id, options_from_collection_for_select(Season.all.sort_by{ |c| c.title }, :id, :title, {:selected => item.season_id}), {}, {:class => 'form-control'})%>
   </div>
 
-  <div class="field">
-    <%= form.label :producer_id %>
-    <%= form.text_field :producer_id %>
+  <div class="form-group">
+    <%= form.label :weather_type %><br />
+    <div class="row">
+      <% WeatherType.all.sort_by{ |w| w.title }.each do |type| %>
+      <div class="col-md-3">
+        <%= check_box_tag "item[weather_type_ids][]", type.id,
+          @item.weather_type.include?(type) %>
+        <%= type.title %><br />
+      </div>
+      <% end %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.label :producer_id, value: 'Producer', class: 'bmd-label-floating' %>
+    <%= form.select(:producer_id, options_from_collection_for_select(Producer.all.sort_by{ |c| c.title }, :id, :title, {:selected => item.producer_id}), {}, {:class => 'form-control'})%>
+  </div>
+
+  <div>
+    <%= link_to 'Back', items_path, class: "btn btn-default" %>
+    <%= form.submit class: 'btn btn-primary btn-raised' %>
   </div>
 <% end %>

@@ -54,6 +54,6 @@ class ChainsController < ApplicationController
     end
 
     def chain_params
-      params.require(:chain).permit(:title, :description)
+      params.require(:chain).permit(:title, :description, :complexity_id)
     end
 end

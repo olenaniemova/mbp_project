@@ -1,59 +1,50 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @route.title %>
-</p>
+<h2><%= @route.title %></h2>
 
-<p>
-  <strong>Description:</strong>
+<div>
   <%= @route.description %>
-</p>
+</div>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @route.start_date %>
-</p>
+<div>
+  <p><strong>Complexity:</strong> <%= @route.complexity.title %></p>
+</div>
 
-<p>
-  <strong>End date:</strong>
-  <%= @route.end_date %>
-</p>
+<div>
+  <p>
+    <strong>From</strong> <%= @route.start_date.strftime("%d %b %Y") %>
+    <strong>to</strong> <%= @route.end_date.strftime("%d %b %Y")  %>,
+    <strong>Duration</strong> <%= @route.duration %> days
+  </p>
+</div>
 
-<p>
-  <strong>Duration:</strong>
-  <%= @route.duration %>
-</p>
+<div>
+  <p><strong>Chain:</strong> <%= @route.chain.title %></p>
+</div>
 
-<p>
-  <strong>Chain:</strong>
-  <%= @route.chain_id %>
-</p>
-
-<p>
-  <strong>User:</strong>
+<!--<p>
+  <strong>Author:</strong>
   <%= @route.user_id %>
-</p>
-
-<p>
-  <strong>Complexity:</strong>
-  <%= @route.complexity_id %>
 </p>
 
 <p>
   <strong>Publication:</strong>
   <%= @route.publication %>
-</p>
+</p>-->
 
-<p>
-  <strong>Settlement dep:</strong>
-  <%= @route.settlement_dep %>
-</p>
+<div>
+  <p>
+    <strong>Settlement departure:</strong>
+    <%= Route.settlement_title(@route.settlement_dep) %>
+  </p>
+</div>
 
-<p>
-  <strong>Settlement arr:</strong>
-  <%= @route.settlement_arr %>
-</p>
+<div>
+  <p>
+    <strong>Settlement arrival:</strong>
+    <%= Route.settlement_title(@route.settlement_arr) %>
+  </p>
+</div>
 
 <%= link_to 'Edit', edit_route_path(@route) %> |
 <%= link_to 'Back', routes_path %>

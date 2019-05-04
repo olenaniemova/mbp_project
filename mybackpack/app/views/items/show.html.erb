@@ -1,18 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @item.title %>
-</p>
+<h2><%= @item.title %></h2>
 
 <p>
   <strong>Weight:</strong>
   <%= @item.weight %>
+  kg
 </p>
 
 <p>
   <strong>Volume:</strong>
   <%= @item.volume %>
+  l
 </p>
 
 <p>
@@ -21,33 +20,44 @@
 </p>
 
 <p>
-  <strong>Source:</strong>
-  <%= @item.source %>
-</p>
-
-<p>
-  <strong>Individualy:</strong>
-  <%= @item.individualy %>
-</p>
-
-<p>
   <strong>Object category:</strong>
-  <%= @item.object_category_id %>
-</p>
-
-<p>
-  <strong>Object importance:</strong>
-  <%= @item.object_importance_id %>
+  <%= @item.object_category.title %>
 </p>
 
 <p>
   <strong>Season:</strong>
-  <%= @item.season_id %>
+  <%= @item.season.title %>
+</p>
+
+<p>
+  <strong>Weather Types: </strong>
+    <% @item.weather_type.each do |type| %>
+    <%= link_to type.title, weather_type_path(type) %>
+    <% end %>
 </p>
 
 <p>
   <strong>Producer:</strong>
-  <%= @item.producer_id %>
+  <%= @item.producer.title %>
+</p>
+
+<p>
+  <strong>Individualy:</strong>
+  <% if @item.individualy %>
+    individual
+  <% else %>
+    not individual
+  <% end %>
+</p>
+
+<p>
+  <strong>Object importance:</strong>
+  <%= @item.object_importance.title %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= link_to @item.source, @item.source %>
 </p>
 
 <%= link_to 'Edit', edit_item_path(@item) %> |

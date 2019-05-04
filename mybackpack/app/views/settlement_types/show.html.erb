@@ -5,6 +5,11 @@
   <%= @settlement_type.title %>
 </p>
 
+<p>
+  <strong>Abbreviation:</strong>
+  <%= @settlement_type.abbreviation %>
+</p>
+
 <div>
   <% @settlement_type.settlement.each do |settlement| %>
     <p><%= link_to settlement.title, settlement_url %></p>

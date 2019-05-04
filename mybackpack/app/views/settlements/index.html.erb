@@ -2,6 +2,8 @@
 
 <h1>Settlements</h1>
 
+
+
 <table>
   <thead>
     <tr>
@@ -13,7 +15,8 @@
   <tbody>
     <% @settlements.each do |settlement| %>
       <tr>
-        <td><%= settlement.title %></td>
+        <td><%= Settlement.full_title(settlement) %></td>
+
         <td><%= link_to 'Show', settlement %></td>
         <td><%= link_to 'Edit', edit_settlement_path(settlement) %></td>
         <td><%= link_to 'Destroy', settlement, method: :delete, data: { confirm: 'Are you sure?' } %></td>

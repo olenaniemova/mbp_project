@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_01_200736) do
+ActiveRecord::Schema.define(version: 2019_05_04_130530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2019_05_01_200736) do
     t.text "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "complexity_id"
   end
 
   create_table "complexities", force: :cascade do |t|
@@ -133,6 +134,12 @@ ActiveRecord::Schema.define(version: 2019_05_01_200736) do
     t.index ["settlement_id"], name: "index_route_places_on_settlement_id"
   end
 
+  create_table "route_statuses", force: :cascade do |t|
+    t.string "title", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "routes", force: :cascade do |t|
     t.string "title", null: false
     t.text "description", null: false
@@ -147,6 +154,7 @@ ActiveRecord::Schema.define(version: 2019_05_01_200736) do
     t.bigint "settlement_arr", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "route_status_id"
   end
 
   create_table "seasons", force: :cascade do |t|
@@ -159,6 +167,7 @@ ActiveRecord::Schema.define(version: 2019_05_01_200736) do
     t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "abbreviation", default: " ", null: false
   end
 
   create_table "settlements", force: :cascade do |t|
@@ -177,6 +186,7 @@ ActiveRecord::Schema.define(version: 2019_05_01_200736) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "chains", "complexities"
   add_foreign_key "foods", "food_categories"
   add_foreign_key "foods", "food_types"
   add_foreign_key "foods", "producers"
@@ -186,6 +196,7 @@ ActiveRecord::Schema.define(version: 2019_05_01_200736) do
   add_foreign_key "items", "seasons"
   add_foreign_key "routes", "chains"
   add_foreign_key "routes", "complexities"
+  add_foreign_key "routes", "route_statuses"
   add_foreign_key "routes", "settlements", column: "settlement_arr"
   add_foreign_key "routes", "settlements", column: "settlement_dep"
   add_foreign_key "settlements", "chains"

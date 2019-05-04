@@ -54,6 +54,6 @@ class SettlementTypesController < ApplicationController
     end
 
     def settlement_type_params
-      params.require(:settlement_type).permit(:title)
+      params.require(:settlement_type).permit(:title, :abbreviation)
     end
 end

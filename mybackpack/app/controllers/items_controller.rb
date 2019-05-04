@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Conroller class Item
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
@@ -49,11 +52,13 @@ class ItemsController < ApplicationController
 
   private
 
-    def set_item
-      @item = Item.find(params[:id])
-    end
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
-    def item_params
-      params.require(:item).permit(:title, :weight, :volume, :description, :source, :individualy, :object_category_id, :object_importance_id, :season_id, :producer_id)
-    end
+  def item_params
+    params.require(:item).permit(:title, :weight, :volume, :description, :source, :individualy,
+      :object_category_id, :object_importance_id, :season_id, :producer_id,
+      weather_type_ids: [])
+  end
 end

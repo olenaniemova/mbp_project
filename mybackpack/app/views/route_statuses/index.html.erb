@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Route Statuses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @route_statuses.each do |route_status| %>
+      <tr>
+        <td><%= route_status.title %></td>
+        <td><%= link_to 'Show', route_status %></td>
+        <td><%= link_to 'Edit', edit_route_status_path(route_status) %></td>
+        <td><%= link_to 'Destroy', route_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Route Status', new_route_status_path %>

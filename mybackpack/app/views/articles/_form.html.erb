@@ -30,8 +30,16 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :article_categories, for: 'Categories', class: 'bmd-label-floating'  %>
-    <%= form.collection_select(:article_categories_id, ArticleCategory.all, :id, :title, {}, {:multiple => true}) %>
+    <%= form.label :article_categories %><br />
+    <div class="row">
+      <% ArticleCategory.all.sort_by{ |c| c.title }.each do |category| %>
+      <div class="col-md-3">
+        <%= check_box_tag "article[article_category_ids][]", category.id,
+          @article.article_category.include?(category) %>
+        <%= category.title %><br />
+      </div>
+      <% end %>
+    </div>
   </div>
 
   <!--<div class="field">

@@ -6,10 +6,11 @@ class Settlement < ApplicationRecord
   validates :description, presence: true
   validates :elevation, presence: true
 
+  scope :full_title, ->(settlement) { "#{settlement.settlement_type.abbreviation}. #{settlement.title}" }
+
   belongs_to :settlement_type
   belongs_to :chain
-  has_many :route
 
   has_many :route_place
-  has_many :settlement, through: :route_place
+  has_many :route, through: :route_place
 end

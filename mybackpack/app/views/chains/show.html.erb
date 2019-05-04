@@ -6,16 +6,27 @@
   <%= @chain.description %>
 </div>
 
-<p>Settlements: </p>
 <div>
-  <% @chain.settlement.each do |settlement| %>
-    <p><%= link_to settlement.title, settlement_url %></p>
-  <% end %>
+  <p>Complexity: <%= @chain.complexity.title %></p>
 </div>
 
-
 <p>Places: </p>
+<div>
+  <p>
+    <% @chain.settlement.each do |settlement| %>
+      <%= link_to settlement.title, settlement_url %> |
+    <% end %>
+  </p>
+</div>
+
 <p>Routes: </p>
+<div>
+  <p>
+    <% @chain.route.each do |route| %>
+      <%= link_to route.title, route_url %> |
+    <% end %>
+  </p>
+</div>
 
 <%= link_to 'Edit', edit_chain_path(@chain) %> |
 <%= link_to 'Back', chains_path %>

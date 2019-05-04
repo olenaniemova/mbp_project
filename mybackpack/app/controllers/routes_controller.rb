@@ -54,6 +54,7 @@ class RoutesController < ApplicationController
     end
 
     def route_params
-      params.require(:route).permit(:title, :description, :start_date, :end_date, :duration, :chain_id, :user_id, :complexity_id, :publication, :settlement_dep, :settlement_arr)
+      params.require(:route).permit(:title, :description, :start_date, :end_date, :duration, :chain_id, :user_id, :complexity_id, :publication, :settlement_dep, :settlement_arr,
+        :route_status_id)
     end
 end

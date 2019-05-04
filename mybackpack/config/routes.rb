@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :route_statuses
   resources :items
   resources :weather_types
   resources :object_categories
