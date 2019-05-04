@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @food.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @food.description %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @food.source %>
+</p>
+
+<p>
+  <strong>Caloric:</strong>
+  <%= @food.caloric %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @food.weight %>
+</p>
+
+<p>
+  <strong>Volume:</strong>
+  <%= @food.volume %>
+</p>
+
+<p>
+  <strong>Food Type:</strong>
+  <%= @food.food_type.title %>
+</p>
+
+<p>
+  <strong>Food Category:</strong>
+  <%= @food.food_category.title %>
+</p>
+
+<p>
+  <strong>Producer:</strong>
+  <%= @food.producer.title %>
+</p>
+
+
+<%= link_to 'Edit', edit_food_path(@food) %> |
+<%= link_to 'Back', foods_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Object Importances</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Value</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @object_importances.each do |object_importance| %>
+      <tr>
+        <td><%= object_importance.title %></td>
+        <td><%= object_importance.value %></td>
+        <td><%= link_to 'Show', object_importance %></td>
+        <td><%= link_to 'Edit', edit_object_importance_path(object_importance) %></td>
+        <td><%= link_to 'Destroy', object_importance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Object Importance', new_object_importance_path %>

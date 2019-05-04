@@ -1,0 +1,34 @@
+<%= form_with(model: chain, local: true) do |form| %>
+  <% if chain.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(chain.errors.count, "error") %> prohibited this chain from being saved:</h2>
+
+      <ul>
+      <% chain.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <div class="form-group">
+    <%= form.label :title, for: 'Title', class: 'bmd-label-floating' %>
+    <%= form.text_field :title, class: 'form-control', id: 'Title' %>
+    <span class="bmd-help">We'll never share your email with anyone else.</span>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :description, for: 'Description', class: 'bmd-label-floating' %>
+    <%= form.text_area :description, class: 'form-control', id: 'Description' %>
+    <span class="bmd-help">We'll never share your email with anyone else.</span>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :complexity_id, value: 'Complexity', class: 'bmd-label-floating' %>
+    <%= form.select(:complexity_id, options_from_collection_for_select(Complexity.all.sort_by{ |c| c.title }, :id, :title, {:selected => chain.complexity_id}), {}, {:class => 'form-control'})%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

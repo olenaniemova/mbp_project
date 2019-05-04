@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Routes</h1>
+
+<br>
+<%= link_to 'New Route', new_route_path %>
+<br>
+
+<div>
+  <% @routes.each do |route| %>
+    <div>
+      <h4><%= route.title %></h4>
+      <p><%= route.chain.title %></p>
+      <p><%= truncate(route.description, :length => 200, :separator => ' ')%> <%= link_to 'Read more', route %></p>
+    </div>
+  <% end %>
+</div>

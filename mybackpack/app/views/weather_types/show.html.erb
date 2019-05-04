@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @weather_type.title %>
+</p>
+
+<div>
+  <p>Items: </p>
+  <% @weather_type.item.each do |item| %>
+    <p><%= link_to item.title, item_url %></p>
+  <% end %>
+</div>
+
+<%= link_to 'Edit', edit_weather_type_path(@weather_type) %> |
+<%= link_to 'Back', weather_types_path %>
