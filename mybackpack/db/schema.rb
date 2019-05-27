@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_04_143707) do
+ActiveRecord::Schema.define(version: 2019_05_19_122850) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2019_05_04_143707) do
     t.boolean "published", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
   end
 
   create_table "articles_categories", force: :cascade do |t|
@@ -105,6 +106,12 @@ ActiveRecord::Schema.define(version: 2019_05_04_143707) do
     t.index ["weather_type_id"], name: "index_items_weather_types_on_weather_type_id"
   end
 
+  create_table "meals", force: :cascade do |t|
+    t.string "title", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "object_categories", force: :cascade do |t|
     t.string "title", null: false
     t.datetime "created_at", null: false
@@ -129,6 +136,42 @@ ActiveRecord::Schema.define(version: 2019_05_04_143707) do
     t.text "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.datetime "birthday", null: false
+    t.binary "gender", null: false
+    t.string "phone", default: " ", null: false
+    t.text "about_me"
+    t.integer "hiking_count", default: 0, null: false
+    t.float "weight", default: 0.0, null: false
+    t.float "height", default: 0.0, null: false
+    t.float "bpws", default: 0.0, null: false
+    t.float "bpvs", default: 0.0, null: false
+    t.float "bpww", default: 0.0, null: false
+    t.float "bpvw", default: 0.0, null: false
+    t.bigint "physical_condition_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "route_items", force: :cascade do |t|
+    t.integer "count", null: false
+    t.bigint "user_id"
+    t.bigint "item_id"
+    t.bigint "route_id"
+  end
+
+  create_table "route_menus", force: :cascade do |t|
+    t.integer "count", null: false
+    t.bigint "user_id"
+    t.bigint "route_id"
+    t.bigint "food_id"
+    t.bigint "meal_id"
   end
 
   create_table "route_places", force: :cascade do |t|
@@ -186,28 +229,34 @@ ActiveRecord::Schema.define(version: 2019_05_04_143707) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "user_available_items", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "item_id"
+    t.integer "count", default: 1, null: false
+  end
+
+  create_table "user_favorite_foods", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "food_id"
+    t.bigint "meal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.datetime "birthday", null: false
-    t.binary "gender", null: false
-    t.string "phone", default: " ", null: false
-    t.text "about_me"
-    t.integer "hiking_count", default: 0, null: false
-    t.float "weight", default: 0.0, null: false
-    t.float "height", default: 0.0, null: false
-    t.float "bpws", default: 0.0, null: false
-    t.float "bpvs", default: 0.0, null: false
-    t.float "bpww", default: 0.0, null: false
-    t.float "bpvw", default: 0.0, null: false
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "physical_condition_id"
+    t.boolean "is_admin", default: false
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -218,6 +267,7 @@ ActiveRecord::Schema.define(version: 2019_05_04_143707) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "articles", "users"
   add_foreign_key "chains", "complexities"
   add_foreign_key "foods", "food_categories"
   add_foreign_key "foods", "food_types"
@@ -226,11 +276,25 @@ ActiveRecord::Schema.define(version: 2019_05_04_143707) do
   add_foreign_key "items", "object_importances"
   add_foreign_key "items", "producers"
   add_foreign_key "items", "seasons"
+  add_foreign_key "profiles", "users"
+  add_foreign_key "route_items", "items"
+  add_foreign_key "route_items", "routes"
+  add_foreign_key "route_items", "users"
+  add_foreign_key "route_menus", "foods"
+  add_foreign_key "route_menus", "meals"
+  add_foreign_key "route_menus", "routes"
+  add_foreign_key "route_menus", "users"
   add_foreign_key "routes", "chains"
   add_foreign_key "routes", "complexities"
   add_foreign_key "routes", "route_statuses"
   add_foreign_key "routes", "settlements", column: "settlement_arr"
   add_foreign_key "routes", "settlements", column: "settlement_dep"
+  add_foreign_key "routes", "users"
   add_foreign_key "settlements", "chains"
   add_foreign_key "settlements", "settlement_types"
+  add_foreign_key "user_available_items", "items"
+  add_foreign_key "user_available_items", "users"
+  add_foreign_key "user_favorite_foods", "foods"
+  add_foreign_key "user_favorite_foods", "meals"
+  add_foreign_key "user_favorite_foods", "users"
 end

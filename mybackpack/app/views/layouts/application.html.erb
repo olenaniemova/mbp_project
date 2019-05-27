@@ -33,9 +33,6 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="./">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
             <%= link_to 'Articles', articles_path, class: 'nav-link' %>
           </li>
           <li class="nav-item">
@@ -55,9 +52,11 @@
 
         <ul class="navbar-nav mr-auto">
           <% if user_signed_in? %>
-            <li class="nav-item">
-              <%= link_to 'Profile', edit_user_registration_path, class: 'nav-link' %>
-            </li>
+            <% if current_user.profile %>
+              <li class="nav-item">
+                <%= link_to 'Profile', profile_path(Profile.find_by_user_id(current_user.id)), class: 'nav-link' %>
+              </li>
+            <% end %>
             <li class="nav-item">
               <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link' %>
             </li>
@@ -77,8 +76,8 @@
 
     <!-- HEADER -->
 
-  <!--<p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>-->
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 
   <div class="container">
     <%= yield %>

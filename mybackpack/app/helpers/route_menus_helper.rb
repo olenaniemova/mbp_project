@@ -1,0 +1,2 @@
+module RouteMenusHelper
+end

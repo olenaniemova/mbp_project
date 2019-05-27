@@ -14,4 +14,11 @@ class Item < ApplicationRecord
   belongs_to :season
   has_many :items_weather_type
   has_many :weather_type, through: :items_weather_type
+
+  has_many :user_available_items
+  has_many :users, through: :user_available_items
+
+  has_many :route_items
+  has_many :routes, through: :route_items, source: :routes
+  has_many :users_items, through: :route_items, source: :users
 end

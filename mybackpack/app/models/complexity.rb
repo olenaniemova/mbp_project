@@ -6,6 +6,6 @@ class Complexity < ApplicationRecord
   validates :description, presence: true
   validates :value, presence: true, numericality: { only_integer: true }
 
-  has_many :route
-  has_many :chain
+  has_many :routes
+  has_many :chains
 end

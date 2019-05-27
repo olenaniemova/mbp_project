@@ -1,0 +1,32 @@
+<%= form_with(model: route_item, local: true) do |form| %>
+  <% if route_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(route_item.errors.count, "error") %> prohibited this route_item from being saved:</h2>
+
+      <ul>
+      <% route_item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :item_id, value: 'Item', class: 'bmd-label-floating' %>
+    <%= form.select(:item_id, options_from_collection_for_select(Item.all.sort_by{ |c| c.title }, :id, :title), {}, {:class => 'form-control'})%>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :route_id, value: 'Route', class: 'bmd-label-floating' %>
+    <%= form.select(:route_id, options_from_collection_for_select(Item.all.sort_by{ |c| c.title }, :id, :title), {}, {:class => 'form-control'})%>
+  </div>
+
+  <div class="field">
+    <%= form.label :count %>
+    <%= form.number_field :count %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

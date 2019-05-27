@@ -5,16 +5,24 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
 
-  #validates :first_name, presence: true
-  #validates :last_name, presence: true
-  #validates :weight, presence: true, numericality: { greater_than: 5 }
-  #validates :height, presence: true, numericality: { greater_than: 50, less_than: 270 }
-  #validates :birthday, presence: true, date: { before: Proc.new { Date.today } }
-  #validates :hiking_count, presence: true
-  #validates :about_me, length: { maximum: 500 }
-  #validates :phone, presence: true, length: { in: 5..12 }
+  has_one :profile
+  has_many :articles
+  has_many :routes
 
-  belongs_to :physical_condition
+  has_many :user_favorite_foods
+  has_many :foods, through: :user_favorite_foods
+  has_many :meals, through: :user_favorite_foods
+
+  has_many :user_available_items
+  has_many :available_items, through: :user_available_items, source: :items
+
+  has_many :route_items
+  has_many :routes_items, through: :route_items, source: :items
+  # routes?????
+
+  has_many :route_menus
+  has_many :route_foods, through: :route_menus, source: :foods
+  has_many :route_meals, through: :route_menus, source: :meals
 end

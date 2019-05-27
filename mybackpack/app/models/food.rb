@@ -12,4 +12,12 @@ class Food < ApplicationRecord
   belongs_to :food_type
   belongs_to :food_category
   belongs_to :producer
+
+  has_many :user_favorite_foods
+  has_many :users, through: :user_favorite_foods
+
+  has_many :route_menus
+  has_many :route_meals, through: :route_menus, source: :meals
+  has_many :route_users, through: :route_menus, source: :users
+  has_many :routes, through: :route_menus
 end

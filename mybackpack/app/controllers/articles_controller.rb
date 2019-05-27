@@ -2,7 +2,9 @@
 
 # Class ArticlesController
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  # before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: %i[edit update destroy]
+  before_action :set_event_show, only: %i[show]
 
   # GET /articles
   def index
@@ -23,6 +25,7 @@ class ArticlesController < ApplicationController
   # POST /articles
   def create
     @article = Article.new(article_params)
+    @article.user_id = current_user.id
 
     respond_to do |format|
       if @article.save
@@ -58,13 +61,18 @@ class ArticlesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_article
-      @article = Article.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def article_params
-      params.require(:article).permit(:title, :text, :source, :published, article_category_ids: [])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_article
+    @article = current_user.articles.find(params[:id])
+  end
+
+  def set_event_show
+    @article = Article.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def article_params
+    params.require(:article).permit(:title, :text, :source, :published, article_category_ids: [])
+  end
 end

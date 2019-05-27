@@ -9,4 +9,5 @@ class Article < ApplicationRecord
 
   has_many :articles_category
   has_many :article_category, through: :articles_category
+  belongs_to :user
 end

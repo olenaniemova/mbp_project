@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User Available Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Count</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_available_items.each do |user_available_item| %>
+      <tr>
+        <td><%= user_available_item.item.title %></td>
+        <td><%= user_available_item.count %></td>
+        <td><%= link_to 'Show', user_available_item %></td>
+        <td><%= link_to 'Edit', edit_user_available_item_path(user_available_item) %></td>
+        <td><%= link_to 'Destroy', user_available_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User Available Item', new_user_available_item_path %>

@@ -1,0 +1,87 @@
+<%= form_with(model: profile, local: true) do |form| %>
+  <% if profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+      <% profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :birthday %>
+    <%= form.date_field :birthday %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gender %>
+    <%= form.select :gender, options_for_select([["Чоловік", 0], ["Жінка", 1]]) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :about_me %>
+    <%= form.text_area :about_me %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hiking_count %>
+    <%= form.number_field :hiking_count %>
+  </div>
+
+  <div class="field">
+    <%= form.label :weight %>
+    <%= form.text_field :weight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :height %>
+    <%= form.text_field :height %>
+  </div>
+
+<div class="field">
+    <%= form.label :physical_condition_id %><br />
+    <%= form.select(:physical_condition_id, options_from_collection_for_select(PhysicalCondition.all, :id, :title), {}, {:class => 'form-control'})%>
+  </div>
+
+<!--   <div class="field">
+    <%= form.label :bpws %>
+    <%= form.text_field :bpws %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bpvs %>
+    <%= form.text_field :bpvs %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bpww %>
+    <%= form.text_field :bpww %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bpvw %>
+    <%= form.text_field :bpvw %>
+  </div> -->
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

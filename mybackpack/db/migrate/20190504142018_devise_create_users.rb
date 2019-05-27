@@ -4,7 +4,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
+      t.string :email, null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable
@@ -14,21 +14,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       ## Rememberable
       t.datetime :remember_created_at
 
-      t.string :first_name, null: false
-      t.string :last_name, null: false
-      t.datetime :birthday, null: false
-      t.binary :gender, null: false
-      t.string :phone, null: false, default: " "
-      t.text :about_me
-      t.integer :hiking_count, null: false, default: 0
-      t.float :weight, null: false, default: 0
-      t.float :height, null: false, default: 0
-      t.float :bpws, null: false, default: 0 # Backpack Weight Summer
-      t.float :bpvs, null: false, default: 0 # Backpack Volume Summer
-      t.float :bpww, null: false, default: 0 # Backpack Weight Winter
-      t.float :bpvw, null: false, default: 0 # Backpack Volume Winter
-
-
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
       # t.datetime :current_sign_in_at
@@ -37,10 +22,10 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       # t.inet     :last_sign_in_ip
 
       ## Confirmable
-      # t.string   :confirmation_token
-      # t.datetime :confirmed_at
-      # t.datetime :confirmation_sent_at
-      # t.string   :unconfirmed_email # Only if using reconfirmable
+      t.string   :confirmation_token
+      t.datetime :confirmed_at
+      t.datetime :confirmation_sent_at
+      t.string   :unconfirmed_email # Only if using reconfirmable
 
       ## Lockable
       # t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
@@ -53,7 +38,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
-    # add_index :users, :confirmation_token,   unique: true
+    add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
   end
 end

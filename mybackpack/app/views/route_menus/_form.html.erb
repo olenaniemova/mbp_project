@@ -1,0 +1,22 @@
+<%= form_with(model: route_menu, local: true) do |form| %>
+  <% if route_menu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(route_menu.errors.count, "error") %> prohibited this route_menu from being saved:</h2>
+
+      <ul>
+      <% route_menu.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :count %>
+    <%= form.number_field :count %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

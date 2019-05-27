@@ -1,0 +1,27 @@
+<%= form_with(model: user_favorite_food, local: true) do |form| %>
+  <% if user_favorite_food.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user_favorite_food.errors.count, "error") %> prohibited this user_favorite_food from being saved:</h2>
+
+      <ul>
+      <% user_favorite_food.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :food_id, value: 'Food', class: 'bmd-label-floating' %>
+    <%= form.select(:food_id, options_from_collection_for_select(Food.all.sort_by{ |c| c.title }, :id, :title), {}, {:class => 'form-control'})%>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :meal_id, value: 'Meal', class: 'bmd-label-floating' %>
+    <%= form.select(:meal_id, options_from_collection_for_select(Meal.all.sort_by{ |c| c.title }, :id, :title), {}, {:class => 'form-control'})%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

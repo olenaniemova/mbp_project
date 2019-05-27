@@ -36,20 +36,16 @@
     <%= form.number_field :duration %>
   </div>
 
-  <div class="field">
-    <%= form.label :chain_id %>
-    <%= form.text_field :chain_id %>
+  <div class="form-group">
+    <%= form.label :chain_id, value: 'Chain', class: 'bmd-label-floating' %>
+    <%= form.select(:chain_id, options_from_collection_for_select(Chain.all.sort_by{ |c| c.title }, :id, :title, {:selected => route.chain_id}), {}, {:class => 'form-control'})%>
   </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+  <div class="form-group">
+    <%= form.label :complexity_id, value: 'Complexity', class: 'bmd-label-floating' %>
+    <%= form.select(:complexity_id, options_from_collection_for_select(Complexity.all.sort_by{ |c| c.title }, :id, :title, {:selected => route.complexity_id}), {}, {:class => 'form-control'})%>
   </div>
 
-  <div class="field">
-    <%= form.label :complexity_id %>
-    <%= form.text_field :complexity_id %>
-  </div>
 
   <div class="field">
     <%= form.label :publication %>

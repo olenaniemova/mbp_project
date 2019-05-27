@@ -6,6 +6,6 @@ class Chain < ApplicationRecord
   validates :description, presence: true
 
   belongs_to :complexity
-  has_many :settlement
-  has_many :route
+  has_many :settlements
+  has_many :routes
 end

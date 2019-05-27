@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :route_menus
+  resources :route_items
+  resources :user_available_items
+  resources :user_favorite_foods
+  resources :meals
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  resources :profiles
   resources :physical_conditions
   devise_for :users
   root to: "articles#index"
