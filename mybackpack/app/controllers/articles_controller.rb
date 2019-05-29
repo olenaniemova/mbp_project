@@ -60,6 +60,10 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def user_articles
+    @articles = current_user.articles.all
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

@@ -9,6 +9,7 @@ class Item < ApplicationRecord
   validates :volume, presence: true # l
 
   belongs_to :object_category
+  belongs_to :item_type
   belongs_to :object_importance
   belongs_to :producer
   belongs_to :season

@@ -9,6 +9,24 @@ class RouteItemsController < ApplicationController
 
   def new
     @route_item = RouteItem.new
+    #@user_items = choose_items
+    @route = Route.find(params[:route])
+    @user_items = create_list
+    if @user_items.kind_of?(Array)
+      @categories = UserAvailableItem.item_categories(@user_items)
+      @user_items.each do |i|
+        item = RouteItem.create(item_id: i.item.id, user_id: current_user.id, count: 1, route_id: @route.id)
+        item.save!
+      end
+    else
+      @user_items.each do |user, items|
+        @categories = UserAvailableItem.item_categories(items)
+        items.each do |i|
+          item = RouteItem.create(item_id: i.item.id, user_id: user, count: 1, route_id: @route.id)
+          item.save!
+        end
+      end
+    end
   end
 
   def edit; end
@@ -55,6 +73,31 @@ class RouteItemsController < ApplicationController
   end
 
   def route_item_params
-    params.require(:route_item).permit(:count, :item_id, :route_id)
+    params.require(:route_item).permit(:count, :item_id, :route_id, :user_id)
+  end
+
+  def choose_items
+    items_o = []
+    items_i = current_user.user_available_items.all
+    items_i.each do |i|
+      items_o.push(i) if (i.item.season.title == 'Літо' || i.item.season.title == 'Міжсезоння')
+    end
+    items_o
+  end
+
+  def create_list
+    # all_items = current_user.user_available_items.all
+    # weights = []
+    # imports = []
+    # all_items.each do |i|
+    #   weights.push(i.item.weight)
+    #   imports.push(i.item.object_importance.value)
+    # end
+    # ItemsList.create_list(weights, imports, all_items.count)
+
+
+    ItemsList.create_list(1, current_user.user_available_items.all, current_user.profile.bpws)  # []
+
+    #ItemsList.create_list_group(1, [1, 2]) # {}
   end
 end

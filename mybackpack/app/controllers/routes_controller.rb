@@ -5,7 +5,10 @@ class RoutesController < ApplicationController
     @routes = Route.all
   end
 
-  def show; end
+  def show
+    @user_items = RouteItem.items(@route.id, current_user.id)
+    @categories = UserAvailableItem.item_categories(@user_items)
+  end
 
   def new
     @route = Route.new
@@ -19,7 +22,9 @@ class RoutesController < ApplicationController
 
     respond_to do |format|
       if @route.save
-        format.html { redirect_to @route, notice: 'Route was successfully created.' }
+        # format.html { redirect_to @route, notice: 'Route was successfully created.' }
+        # format.html { redirect_to new_route_item_path }
+        format.html { redirect_to :controller => 'route_items', :action => 'new', route: @route.id }
         format.json { render :show, status: :created, location: @route }
       else
         format.html { render :new }
@@ -46,6 +51,10 @@ class RoutesController < ApplicationController
       format.html { redirect_to routes_url, notice: 'Route was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def user_routes
+    @routes = current_user.routes.all
   end
 
   private

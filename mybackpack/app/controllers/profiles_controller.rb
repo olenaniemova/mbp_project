@@ -22,6 +22,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     @profile.user_id = current_user.id
+    @profile.bpws = bpws
 
     respond_to do |format|
       if @profile.save
@@ -72,6 +73,6 @@ class ProfilesController < ApplicationController
   end
 
   def bpws
-    @profile.weight / 3
+    @profile.weight / 5 - 2.5
   end
 end

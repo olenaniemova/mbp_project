@@ -43,7 +43,7 @@ RailsAdmin.config do |config|
     # history_show
   end
 
-  config.excluded_models = %i[ArticlesCategory ItemsWeatherType RoutePlace]
+  config.excluded_models = %i[ArticlesCategory ItemsWeatherType RoutePlace UserAvailableItem UserFavoriteFood]
 
   config.model 'ArticleCategory' do
     parent Article
@@ -80,34 +80,12 @@ RailsAdmin.config do |config|
   config.model 'PhysicalCondition' do
     parent User
   end
-  config.model 'User' do
-    list do
-      exclude_fields :confirmation_token, :confirmation_sent_at, :updated_at,
-                     :reset_password_token, :reset_password_sent_at,
-                     :remember_created_at, :unconfirmed_email, :confirmed_at
-    end
-    show do
-      exclude_fields :confirmation_token, :confirmation_sent_at,
-                     :reset_password_token, :reset_password_sent_at,
-                     :remember_created_at, :unconfirmed_email, :confirmed_at
-      include_fields :created_at, :updated_at
-    end
-    edit do
-      exclude_fields :confirmation_token, :confirmation_sent_at, :updated_at,
-                     :reset_password_token, :reset_password_sent_at,
-                     :remember_created_at, :unconfirmed_email, :confirmed_at,
-                     :password, :password_confirmation
-    end
-  end
-
   config.model 'SettlementType' do
     parent Settlement
   end
-
   config.model 'RouteStatus' do
     parent Route
   end
-
   models_witout = ['ArticleCategory', 'Chain', 'Complexity', 'FoodCategory', 'FoodType', 'ObjectCategory', 'ObjectImportance', 'Season', 'WeatherType', 'Producer', 'RoutePlace', 'RouteStatus', 'SettlementType', 'PhysicalCondition']
   models_witout.each do |imodel|
     config.model imodel do

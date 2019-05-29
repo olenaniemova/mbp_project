@@ -3,6 +3,7 @@ class UserAvailableItemsController < ApplicationController
 
   def index
     @user_available_items = current_user.user_available_items.all
+    @categories = UserAvailableItem.item_categories(@user_available_items)
   end
 
   def show; end

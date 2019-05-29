@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :item_types
   resources :route_menus
   resources :route_items
   resources :user_available_items
@@ -8,6 +9,8 @@ Rails.application.routes.draw do
   resources :profiles
   resources :physical_conditions
   devise_for :users
+  get '/user_articles', to: 'articles#user_articles'
+  get '/user_routes', to: 'routes#user_routes'
   root to: "articles#index"
 
   resources :route_statuses

@@ -51,6 +51,11 @@
   </div>
 
   <div class="form-group">
+    <%= form.label :item_type_id, value: 'Item type', class: 'bmd-label-floating' %>
+    <%= form.select(:item_type_id, options_from_collection_for_select(ItemType.all.sort_by{ |c| c.title }, :id, :title, {:selected => item.item_type_id}), {}, {:class => 'form-control'})%>
+  </div>
+
+  <div class="form-group">
     <%= form.label :object_importance_id, value: 'Object importance', class: 'bmd-label-floating' %>
     <%= form.select(:object_importance_id, options_from_collection_for_select(ObjectImportance.all.sort_by{ |c| c.title }, :id, :title, {:selected => item.object_importance_id}), {}, {:class => 'form-control'})%>
   </div>
