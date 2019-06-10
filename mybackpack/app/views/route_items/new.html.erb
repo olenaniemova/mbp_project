@@ -1,4 +1,4 @@
-<h1>Recommended list of items</h1>
+<h1>Рекомендований список спорядження</h1>
 
 <!--
 <%= render 'form', route_item: @route_item %>
@@ -19,11 +19,11 @@
     <table>
       <thead>
         <tr>
-          <th style="width: 250px">Item</th>
-          <th>Count</th>
-          <th>Weight (kg)</th>
-          <th>Individualy</th>
-          <th>Importance</th>
+          <th style="width: 250px">Назва</th>
+          <th>Кількість</th>
+          <th>Вага, кг</th>
+          <th>Індивідуальність</th>
+          <th>Важливість</th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -37,9 +37,9 @@
             <td><%= i.item.weight %></td>
             <td><%= i.item.individualy %></td>
             <td><%= i.item.object_importance.title %></td>
-            <td><%= link_to 'Show', item_path(i.item) %></td>
-            <td><%= link_to 'Edit', edit_user_available_item_path(i) %></td>
-            <td><%= link_to 'Destroy', i, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Деталі', item_path(i.item) %></td>
+            <td><%= link_to 'Редагувати', edit_user_available_item_path(i) %></td>
+            <td><%= link_to 'Видалити', i, method: :delete, data: { confirm: 'Ви впевненні?' } %></td>
           </tr>
         <% end %>
       </tbody>
@@ -47,7 +47,7 @@
     <br>
   <% end %>
     <div>
-      <p><strong>Sum: <%= sum.round(2) %> kg</strong></p>
+      <p style="font-size: 26px"><strong>Вага наплічника: <%= sum.round(2) %> кг</strong></p>
     </div>
   </div>
 
@@ -67,11 +67,11 @@
     <table>
       <thead>
         <tr>
-          <th style="width: 250px">Item</th>
-          <th>Count</th>
-          <th>Weight (kg)</th>
-          <th>Individualy</th>
-          <th>Importance</th>
+          <th style="width: 250px">Назва</th>
+          <th>Кількість</th>
+          <th>Вага, кг</th>
+          <th>Індивідуальність</th>
+          <th>Важливість</th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -85,9 +85,9 @@
             <td><%= i.item.weight %></td>
             <td><%= i.item.individualy %></td>
             <td><%= i.item.object_importance.title %></td>
-            <td><%= link_to 'Show', item_path(i.item) %></td>
-            <td><%= link_to 'Edit', edit_user_available_item_path(i) %></td>
-            <td><%= link_to 'Destroy', i, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Деталі', item_path(i.item) %></td>
+            <td><%= link_to 'Редагувати', edit_user_available_item_path(i) %></td>
+            <td><%= link_to 'Видалити', i, method: :delete, data: { confirm: 'Ви впевненні?' } %></td>
           </tr>
         <% end %>
       </tbody>
@@ -95,7 +95,7 @@
     <br>
   <% end %>
     <div>
-      <p><strong>Sum: <%= sum.round(2) %> kg</strong></p>
+      <p style="font-size: 26px"><strong>Вага наплічника: <%= sum.round(2) %> кг</strong></p>
     </div>
   </div>
 

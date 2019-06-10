@@ -96,8 +96,8 @@ class RouteItemsController < ApplicationController
     # ItemsList.create_list(weights, imports, all_items.count)
 
 
-    ItemsList.create_list(1, current_user.user_available_items.all, current_user.profile.bpws)  # []
+    #ItemsList.create_list(1, current_user.user_available_items.all, current_user.profile.bpws)  # []
 
-    #ItemsList.create_list_group(1, [1, 2]) # {}
+    ItemsList.create_list_group(1, [1, 2]) # {}
   end
 end

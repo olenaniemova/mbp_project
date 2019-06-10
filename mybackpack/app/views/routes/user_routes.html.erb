@@ -1,8 +1,8 @@
 <div>
-  <%= link_to 'New Route', new_route_path %>
+  <%= link_to 'Новий маршрут', new_route_path %>
 </div>
 <div>
-  <strong>Routes: </strong>
+  <strong>Маршрути: </strong>
   <% @routes.each do |route| %>
     <p>
       <%= link_to route.title, route_path(route) %>
