@@ -1,9 +1,9 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
 
-<h1>Routes</h1>
+<h1>Маршрути</h1>
 
 <br>
-<%= link_to 'New Route', new_route_path %>
+<%= link_to 'Створити новий маршрут', new_route_path %>
 <br>
 
 <div>
@@ -11,7 +11,7 @@
     <div>
       <h4><%= route.title %></h4>
       <p><%= route.chain.title %></p>
-      <p><%= truncate(route.description, :length => 200, :separator => ' ')%> <%= link_to 'Read more', route %></p>
+      <p><%= truncate(route.description, :length => 200, :separator => ' ')%> <%= link_to 'Читати більше', route %></p>
     </div>
   <% end %>
 </div>

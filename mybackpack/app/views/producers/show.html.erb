@@ -1,21 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<h2>
   <%= @producer.title %>
-</p>
+</h2>
 
-<p>
-  <strong>Description:</strong>
+<p style="font-size: 16px;">
   <%= @producer.description %>
 </p>
 
-<p><strong>Items:</strong></p>
+<% unless @producer.food.empty? %>
+<h5>Їжа:</h5>
 <div>
+  <p>
   <% @producer.food.each do |food| %>
-    <p><%= link_to food.title, food_url %></p>
+    <%= link_to food.title, food_parth(food) %>,
   <% end %>
+  </p>
 </div>
+<% end %>
 
-<%= link_to 'Edit', edit_producer_path(@producer) %> |
-<%= link_to 'Back', producers_path %>
+<% unless @producer.item.empty? %>
+<h5>Спорядження:</h5>
+<div>
+  <p>
+  <% @producer.item.each do |item| %>
+    <%= link_to item.title, item_path(item) %>,
+  <% end %>
+  </p>
+</div>
+<% end %>
+
+<!--<%= link_to 'Edit', edit_producer_path(@producer) %> | -->
+<%= link_to 'Повернутися', producers_path %>
+<div style="margin-bottom: 30px"></div>

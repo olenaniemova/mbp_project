@@ -1,11 +1,48 @@
-<div>
-  <%= link_to 'Новий маршрут', new_route_path %>
+<!-- <p id="notice"><%= notice %></p> -->
+
+<div class="row">
+
+<div class="col-md-2"></div>
+<div class="col-md-3">
+<h3 style="margin-bottom: 30px; margin-left: -50px">Профіль</h3>
 </div>
+<div class="col-md-7"></div>
+
 <div>
-  <strong>Маршрути: </strong>
-  <% @routes.each do |route| %>
-    <p>
-      <%= link_to route.title, route_path(route) %>
-    </p>
-  <% end %>
+
+<div class="row" style="width: 900px; align-content: center;">
+<div class="col-md-2"></div>
+<div class="col-md-3">
+  <!-- <p><%= link_to 'User available items', user_available_items_path %></p> -->
+  <!-- <p><%= link_to 'User favorite foods', user_favorite_foods_path %></p> -->
+<!--   <p><%= link_to 'User routes', user_routes_path %></p>
+  <p><%= link_to 'User articles', user_articles_path %></p> -->
+
+  <p style="font-size: 20px"><%= link_to 'Мої дані', profile_path(current_user.id) %></p>
+  <p style="font-size: 20px"><%= link_to 'Мої статті', user_articles_path %></p>
+  <p style="font-size: 20px"><%= link_to 'Мої маршрути', user_routes_path %></p>
+  <p style="font-size: 20px"><%= link_to 'Моє спродяження', user_available_items_path %></p>
+</div>
+
+<div class="col-md-7" >
+
+  <h4 style="margin-bottom: 30px">Мої маршрути</h4>
+
+  <%= link_to 'Створити новий маршрут', new_route_path %>
+  <p style="margin-bottom: 30px"></p>
+
+  <div>
+    <% @routes.each do |route| %>
+    <div style="margin-bottom: 25px">
+      <p style="font-size: 16px; font-style: italic; font-weight: bold;">
+        <%= link_to route.title, route_path(route) %>
+      </p>
+      <p><%= truncate(route.description, :length => 200, :separator => ' ') %> <%= link_to 'Читати більше', route %></p>
+      <!-- <p>Гірський хребет: <%= route.chain.title %></p> -->
+      <p>Початок: <%= route.start_date.strftime("%d %b %Y") %>, <%= Settlement.full_title(Settlement.find(route.settlement_dep)) %> | Закінчення: <%= route.end_date.strftime("%d %b %Y") %>, <%= Settlement.full_title(Settlement.find(route.settlement_arr)) %></p>
+    </div>
+    <% end %>
+  </div>
+
+</div>
 </div>

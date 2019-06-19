@@ -3,67 +3,67 @@
 <h2><%= @item.title %></h2>
 
 <p>
-  <strong>Weight:</strong>
+  <strong>Вага:</strong>
   <%= @item.weight %>
-  kg
+  кг
 </p>
 
 <p>
-  <strong>Volume:</strong>
+  <strong>Об'єм:</strong>
   <%= @item.volume %>
-  l
+  л
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Опис:</strong>
   <%= @item.description %>
 </p>
 
 <p>
-  <strong>Object category:</strong>
+  <strong>Категорія:</strong>
   <%= @item.object_category.title %>
 </p>
 
 <p>
-  <strong>Item type:</strong>
+  <strong>Тип:</strong>
   <%= @item.item_type.title %>
 </p>
 
 <p>
-  <strong>Season:</strong>
+  <strong>Сезон:</strong>
   <%= @item.season.title %>
 </p>
 
 <p>
-  <strong>Weather Types: </strong>
+  <strong>Найкраще підходить для погоди: </strong>
     <% @item.weather_type.each do |type| %>
     <%= link_to type.title, weather_type_path(type) %>
     <% end %>
 </p>
 
 <p>
-  <strong>Producer:</strong>
+  <strong>Виробник:</strong>
   <%= @item.producer.title %>
 </p>
 
 <p>
-  <strong>Individualy:</strong>
+  <strong>Індивідуальність речі:</strong>
   <% if @item.individualy %>
-    individual
+    індивідуальна
   <% else %>
-    not individual
+    групова
   <% end %>
 </p>
 
 <p>
-  <strong>Object importance:</strong>
+  <strong>Важливість:</strong>
   <%= @item.object_importance.title %>
 </p>
 
 <p>
-  <strong>Source:</strong>
+  <strong>Джерело:</strong>
   <%= link_to @item.source, @item.source %>
 </p>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+<!-- <%= link_to 'Редагувати', edit_item_path(@item) %> | -->
+<%= link_to 'Назад', items_path %>

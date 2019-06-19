@@ -1,0 +1,304 @@
+<div>
+  <h2>Задача про декілька ранців</h2>
+
+  <h4>Вхідні дані</h4>
+
+  <div style="width: 200px">
+    <p style="font-size: 16px">Кількість ранців: <input type="text" name="weight" id="bp_weight" class="form-control" value="2"></p>
+  </div>
+   <div style="width: 200px">
+    <p style="font-size: 16px">Міскість ранця 1, кг: <input type="text" name="weight" id="bp_weight" class="form-control" value="25"></p>
+  </div>
+  <div style="width: 200px">
+    <p style="font-size: 16px">Міскість ранця 2, кг: <input type="text" name="weight" id="bp_weight" class="form-control" value="32"></p>
+  </div>
+
+  <div style="width: 150px; float: right; margin: 10px 0px 20px 0px"><input type="button" name="add_item" id="add_item" value="Додати предмет" class="btn btn-primary"></div>
+  <div style="width: 150px; float: right; margin: 10px 0px 20px 0px"><input type="button" name="add_item" id="add_item" value="Додати ранець" class="btn btn-primary"></div>
+
+
+<!--   <table class="table table-bordered" style="text-align: center" id="input">
+  <thead>
+    <tr>
+      <th scope="col">Набір предметів</th>
+      <th scope="col">1</th>
+      <th scope="col">2</th>
+      <th scope="col">3</th>
+       <th scope="col">4</th>
+     <th scope="col">5</th>
+      <th scope="col">6</th>
+      <th scope="col">7</th>
+      <th scope="col">8</th>
+      <th scope="col">Наявна сума</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Вага, кг</th>
+      <td><input type="text" name="" value="0,41" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="0,87" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="1,0" id="weight-1" class="form-control" style="text-align: center"></td>
+       <td><input type="text" name="" value="0" id="weight-1" class="form-control" style="text-align: center"></td>
+     <td><input type="text" name="" value="3,58" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="4,78" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="5,93" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="7,63" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Об'єм, дм3</th>
+      <td><input type="text" name="" value="2,0" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="3,4" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="1,9" id="weight-1" class="form-control" style="text-align: center"></td>
+       <td><input type="text" name="" value="0" id="weight-1" class="form-control" style="text-align: center"></td>
+     <td><input type="text" name="" value="2,0" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="2,6" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="1,4" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="5,1" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Кількість, шт</th>
+      <td><input type="text" name="" value="3" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="5" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="9" id="weight-1" class="form-control" style="text-align: center"></td>
+       <td><input type="text" name="" value="0" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="3" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="8" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="3" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="6" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Сума, кг</th>
+      <td>1,23</td>
+      <td>4,35</td>
+      <td>9,0</td>
+       <td>0</td>
+     <td>10,74</td>
+      <td>38,24</td>
+      <td>17,79</td>
+      <td>45,78</td>
+      <td>14,58</td>
+    </tr>
+    <tr>
+      <th scope="row">Сума, дм3</th>
+      <td>6,0</td>
+      <td>17,0</td>
+      <td>17,1</td>
+       <td>0</td>
+     <td>6,0</td>
+      <td>20,8</td>
+      <td>4,2</td>
+      <td>30,6</td>
+      <td>40,1</td>
+    </tr>
+  </tbody>
+</table> -->
+
+  <table class="table table-bordered" style="text-align: center" id="input">
+  <thead>
+    <tr>
+      <th scope="col">Набір предметів</th>
+      <th scope="col">1</th>
+      <th scope="col">2</th>
+      <th scope="col">3</th>
+      <th scope="col">4</th>
+      <th scope="col">5</th>
+      <th scope="col">6</th>
+      <th scope="col">7</th>
+      <th scope="col">8</th>
+      <th scope="col">Наявна сума</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Вага, кг</th>
+      <td><input type="text" name="" value="0,41" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="0,87" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="1,0" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="2,42" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="3,58" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="4,78" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="5,93" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="7,63" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Об'єм, дм3</th>
+      <td><input type="text" name="" value="2,0" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="3,4" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="1,9" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="4,4" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="2,0" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="2,6" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="1,4" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="5,1" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Кількість, шт</th>
+      <td><input type="text" name="" value="3" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="5" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="9" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="7" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="3" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="8" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="3" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td><input type="text" name="" value="6" id="weight-1" class="form-control" style="text-align: center"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">Сума, кг</th>
+      <td>1,23</td>
+      <td>4,35</td>
+      <td>9,0</td>
+      <td>16,94</td>
+      <td>10,74</td>
+      <td>38,24</td>
+      <td>17,79</td>
+      <td>45,78</td>
+      <td>144,07</td>
+    </tr>
+    <tr>
+      <th scope="row">Сума, дм3</th>
+      <td>6,0</td>
+      <td>17,0</td>
+      <td>17,1</td>
+      <td>30,8</td>
+      <td>6,0</td>
+      <td>20,8</td>
+      <td>4,2</td>
+      <td>30,6</td>
+      <td>132,5</td>
+    </tr>
+  </tbody>
+</table>
+
+  <div style="width: 120px; float: right; margin: 20px 0px 40px 0px"><input type="button" name="add_item" id="add_item" value="Розрахувати" class="btn btn-primary"></div>
+
+  <div style="margin-top: 70px"><h4>Результати</h4></div>
+
+  <table class="table table-bordered" id="output" style="margin-bottom: 70px; text-align: center">
+  <thead>
+    <tr>
+      <th scope="col">Набір предметів</th>
+      <th scope="col">1</th>
+      <th scope="col">2</th>
+      <th scope="col">3</th>
+      <th scope="col">4</th>
+      <th scope="col">5</th>
+      <th scope="col">6</th>
+      <th scope="col">7</th>
+      <th scope="col">8</th>
+      <th scope="col">Наявна сума</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row" colspan="10">Ранець 1</th>
+    </tr>
+    <tr>
+      <th scope="row">Кількість, шт</th>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th scope="row">Сума, кг</th>
+      <td>0,41</td>
+      <td>0,0</td>
+      <td>2,0</td>
+      <td>2,42</td>
+      <td>3,58</td>
+      <td>4,78</td>
+      <td>11,86</td>
+      <td>0,0</td>
+      <td>25,05</td>
+    </tr>
+    <tr>
+      <th scope="row">Сума, дм3</th>
+      <td>2,0</td>
+      <td>0,0</td>
+      <td>3,8</td>
+      <td>4,4</td>
+      <td>2,0</td>
+      <td>2,6</td>
+      <td>2,8</td>
+      <td>0,0</td>
+      <td>17,6</td>
+    </tr>
+    <tr>
+      <th scope="row" colspan="10">Ранець 2</th>
+    </tr>
+    <tr>
+      <th scope="row">Кількість, шт</th>
+      <td>0</td>
+      <td>2</td>
+      <td>3</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th scope="row">Сума, кг</th>
+      <td>0,0</td>
+      <td>1,74</td>
+      <td>3,0</td>
+      <td>4,84</td>
+      <td>7,16</td>
+      <td>0,0</td>
+      <td>0,0</td>
+      <td>15,26</td>
+      <td>32,0</td>
+    </tr>
+    <tr>
+      <th scope="row">Сума, дм3</th>
+      <td>0,0</td>
+      <td>6,8</td>
+      <td>5,7</td>
+      <td>8,8</td>
+      <td>4,0</td>
+      <td>0,0</td>
+      <td>0,0</td>
+      <td>10,2</td>
+      <td>35,5</td>
+    </tr>
+
+    <tr>
+      <th scope="row">Кількість загальна, шт</th>
+      <td>1</td>
+      <td>2</td>
+      <td>5</td>
+      <td>3</td>
+      <td>3</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th scope="row">Залишок, шт</th>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>4</td>
+      <td>0</td>
+      <td>7</td>
+      <td>1</td>
+      <td>4</td>
+      <td>25</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>

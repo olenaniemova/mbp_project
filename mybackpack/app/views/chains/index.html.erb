@@ -1,13 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Chains</h1>
+<h1>Гірські хребти</h1>
 
 <div>
-  <p><%= link_to 'Settlements', settlements_path %> |
-  <%= link_to 'Settlement Types', settlement_types_path %> |
-  <%= link_to 'Complexities', complexities_path %> |
-  <%= link_to 'Routes', routes_path %> |
-  <%= link_to 'Route Statuses', route_statuses_path %> |
+  <p>
+<!--    <%= link_to 'Settlements', settlements_path %> |
+   <%= link_to 'Settlement Types', settlement_types_path %> |
+  <%= link_to 'Complexities', complexities_path %> | -->
+  <%= link_to 'Маршрути', routes_path %>
+<!--   <%= link_to 'Route Statuses', route_statuses_path %> | -->
   </p>
 </div>
 
@@ -15,11 +16,11 @@
   <% @chains.each do |chain| %>
     <div>
       <h4><%= chain.title %></h4>
-      <p><%= truncate(chain.description, :length => 200, :separator => ' ')%> <%= link_to 'Read more', chain %></p>
+      <p><%= truncate(chain.description, :length => 200, :separator => ' ')%> <%= link_to 'Читати більше', chain %></p>
     </div>
   <% end %>
 </div>
 
 <br>
 
-<%= link_to 'New Chain', new_chain_path %>
+<!-- <%= link_to 'New Chain', new_chain_path %> -->

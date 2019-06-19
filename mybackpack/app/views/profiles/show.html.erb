@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
 
 <div class="row">
 
@@ -45,7 +45,7 @@
 </p>
 
 <p style="font-size: 16px">
-  <strong>Тел.:</strong>
+  <strong>Мобільний тел.:</strong>
   <%= @profile.phone %>
 </p>
 
@@ -72,7 +72,12 @@
 </p>
 
 <p style="font-size: 16px">
-  <strong>Вага наплічника<!--  summer -->:</strong>
+  <strong>Фізичний стан:</strong>
+  <%= @profile.physical_condition.title %>
+</p>
+
+<p style="font-size: 16px">
+  <strong>Рекомендована вага наплічника<!--  summer -->:</strong>
   <%= @profile.bpws.round(2) %>
   кг
 </p>

@@ -11,54 +11,54 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
+  <div class="form-group">
+    <%= form.label :first_name, value: "Ім'я", for: 'First_name', class: 'bmd-label-floating' %>
+    <%= form.text_field :first_name, class: 'form-control', id: 'First_name' %>
   </div>
 
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
+  <div class="form-group">
+    <%= form.label :last_name, value: "Прізвище", for: 'Last_name', class: 'bmd-label-floating' %>
+    <%= form.text_field :last_name, class: 'form-control', id: 'Last_name' %>
   </div>
 
-  <div class="field">
-    <%= form.label :birthday %>
-    <%= form.date_field :birthday %>
+  <div class="form-group">
+    <%= form.label :birthday, value: "День народження", for: 'Birthday', class: 'bmd-label-floating' %>
+    <%= form.date_field :birthday, class: 'form-control', id: 'Birthday' %>
   </div>
 
-  <div class="field">
-    <%= form.label :gender %>
-    <%= form.select :gender, options_for_select([["Чоловік", 0], ["Жінка", 1]]) %>
+  <div class="form-group">
+    <%= form.label :gender, value: "Стать", for: 'Gender', class: 'bmd-label-floating' %>
+    <%= form.select :gender, options_for_select([["Чоловік", 0], ["Жінка", 1]], {:selected => profile.gender}), {}, {:class => 'form-control'} %>
   </div>
 
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone %>
+  <div class="form-group">
+    <%= form.label :phone, value: "Мобільний тел", for: 'Phone', class: 'bmd-label-floating' %>
+    <%= form.text_field :phone , class: 'form-control', id: 'Phone'%>
   </div>
 
-  <div class="field">
-    <%= form.label :about_me %>
-    <%= form.text_area :about_me %>
+  <div class="form-group">
+    <%= form.label :about_me, value: "Про мене", for: 'About_me', class: 'bmd-label-floating' %>
+    <%= form.text_area :about_me, class: 'form-control', id: 'About_me' %>
   </div>
 
-  <div class="field">
-    <%= form.label :hiking_count %>
-    <%= form.number_field :hiking_count %>
+  <div class="form-group">
+    <%= form.label :hiking_count, value: "Кількість походів", for: 'Hiking_count', class: 'bmd-label-floating' %>
+    <%= form.number_field :hiking_count, class: 'form-control', id: 'Hiking_count' %>
   </div>
 
-  <div class="field">
-    <%= form.label :weight %>
-    <%= form.text_field :weight %>
+  <div class="form-group">
+    <%= form.label :weight, value: "Вага, кг", for: 'Weight', class: 'bmd-label-floating' %>
+    <%= form.text_field :weight, class: 'form-control', id: 'Weight' %>
   </div>
 
-  <div class="field">
-    <%= form.label :height %>
-    <%= form.text_field :height %>
+  <div class="form-group">
+    <%= form.label :height, value: "Зріст, см", for: 'Height', class: 'bmd-label-floating' %>
+    <%= form.text_field :height, class: 'form-control', id: 'Height' %>
   </div>
 
-<div class="field">
-    <%= form.label :physical_condition_id %><br />
-    <%= form.select(:physical_condition_id, options_from_collection_for_select(PhysicalCondition.all, :id, :title), {}, {:class => 'form-control'})%>
+<div class="form-group">
+    <%= form.label :physical_condition_id, value: "Фізичний стан", for: 'Physical_condition', class: 'bmd-label-floating' %><br />
+    <%= form.select(:physical_condition_id, options_from_collection_for_select(PhysicalCondition.all, :id, :title, {:selected => profile.physical_condition_id}), {}, {:class => 'form-control'})%>
   </div>
 
 <!--   <div class="field">
@@ -81,7 +81,7 @@
     <%= form.text_field :bpvw %>
   </div> -->
 
-  <div class="actions">
-    <%= form.submit %>
+  <div>
+    <%= form.submit value: 'Зберегти', class: 'btn btn-primary btn-raised' %>
   </div>
 <% end %>

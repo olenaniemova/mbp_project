@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
 
   <h2><%= @article.title %></h2>
 
@@ -7,19 +7,26 @@
   </div>
 
   <p>
-    <strong>Categories: </strong>
+    <strong>Категорії: </strong>
       <% @article.article_category.each do |category| %>
       <%= link_to category.title, article_category_path(category) %>
       <% end %>
   </p>
 
   <p>
-    <strong>Source:</strong>
+    <strong>Джерело:</strong>
     <%= link_to @article.source, @article.source %>
   </p>
 
-  <p>
-    <%= link_to 'Edit', edit_article_path(@article) %> |
-    <%= link_to 'Destroy', @article, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <p>Автор:
+    <%= @author.first_name %>
+    <%= @author.last_name %>
   </p>
-  <p><%= link_to 'Back', articles_path %></p>
+
+  <% if current_user.id == @author.user_id %>
+    <p>
+      <%= link_to 'Редагувати', edit_article_path(@article) %> |
+      <%= link_to 'Видалити', @article, method: :delete, data: { confirm: 'Ви впевнені?' } %>
+    </p>
+  <% end %>
+  <p><%= link_to 'Назад', articles_path %></p>

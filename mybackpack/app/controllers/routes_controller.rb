@@ -24,7 +24,7 @@ class RoutesController < ApplicationController
       if @route.save
         # format.html { redirect_to @route, notice: 'Route was successfully created.' }
         # format.html { redirect_to new_route_item_path }
-        format.html { redirect_to :controller => 'route_items', :action => 'new', route: @route.id }
+        format.html { redirect_to :controller => 'route_items', :action => 'new', route: @route.id, rp: route_part }
         format.json { render :show, status: :created, location: @route }
       else
         format.html { render :new }
@@ -66,5 +66,9 @@ class RoutesController < ApplicationController
     def route_params
       params.require(:route).permit(:title, :description, :start_date, :end_date, :duration, :chain_id, :complexity_id, :publication, :settlement_dep, :settlement_arr,
         :route_status_id)
+    end
+
+    def route_part
+      params.require(:route).permit(participants: [])
     end
 end

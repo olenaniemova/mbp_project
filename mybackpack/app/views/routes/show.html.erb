@@ -1,25 +1,25 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
 
 <h2><%= @route.title %></h2>
 
-<div>
+<div style="margin-bottom: 15px;">
   <%= @route.description %>
 </div>
 
 <div>
-  <p><strong>Complexity:</strong> <%= @route.complexity.title %></p>
+  <p><strong>Складність:</strong> <%= @route.complexity.title %></p>
 </div>
 
 <div>
   <p>
-    <strong>From</strong> <%= @route.start_date.strftime("%d %b %Y") %>
-    <strong>to</strong> <%= @route.end_date.strftime("%d %b %Y")  %>,
-    <strong>Duration</strong> <%= @route.duration %> days
+    <strong>З</strong> <%= @route.start_date.strftime("%d %b %Y") %>
+    <strong>до</strong> <%= @route.end_date.strftime("%d %b %Y")  %>,
+    <strong>тривалість</strong> <%= @route.duration %> дні
   </p>
 </div>
 
 <div>
-  <p><strong>Chain:</strong> <%= @route.chain.title %></p>
+  <p><strong>Гірський хребет:</strong> <%= @route.chain.title %></p>
 </div>
 
 <!--<p>
@@ -34,20 +34,20 @@
 
 <div>
   <p>
-    <strong>Settlement departure:</strong>
-    <%= Route.settlement_title(@route.settlement_dep) %>
+    <strong>Місце початку:</strong>
+    <%= Settlement.full_title(Settlement.find(@route.settlement_dep)) %>
   </p>
 </div>
 
 <div>
   <p>
-    <strong>Settlement arrival:</strong>
-    <%= Route.settlement_title(@route.settlement_arr) %>
+    <strong>Місце закінчення:</strong>
+    <%= Settlement.full_title(Settlement.find(@route.settlement_arr)) %>
   </p>
 </div>
 
 <div>
-  <h3>My items</h3>
+  <h3>Моє спорядження (<%= Profile.find(current_user.id).first_name %> <%= Profile.find(current_user.id).last_name %>)*</h3>
 
   <% sum = 0 %>
 <div>
@@ -56,11 +56,11 @@
   <table>
     <thead>
       <tr>
-        <th style="width: 250px">Item</th>
-        <th>Count</th>
-        <th>Weight (kg)</th>
-        <th>Individualy</th>
-        <th>Importance</th>
+        <th style="width: 250px">Предмет</th>
+        <th>Кількість</th>
+        <th>Вага (кг)</th>
+        <th>Ідивідуальність</th>
+        <th>Важливість</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -72,11 +72,17 @@
           <td><%= i.item.title %></td>
           <td><%= 1 %></td>
           <td><%= i.item.weight %></td>
-          <td><%= i.item.individualy %></td>
+          <td>
+            <% if i.item.individualy %>
+              індивідуальна
+            <% else %>
+              групова
+            <% end %>
+          </td>
           <td><%= i.item.object_importance.title %></td>
-          <td><%= link_to 'Show', item_path(i.item) %></td>
-          <td><%= link_to 'Edit', edit_user_available_item_path(i) %></td>
-          <td><%= link_to 'Destroy', i, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Деальніше', item_path(i.item) %></td>
+          <!-- <td><%= link_to 'Редагувати', edit_user_available_item_path(i) %></td> -->
+          <!-- <td><%= link_to 'Destroy', i, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
         </tr>
       <% end %>
     </tbody>
@@ -84,10 +90,13 @@
   <br>
 <% end %>
   <div>
-    <h3>Sum: <%= sum.round(2) %> kg</h3>
+    <h4>Вага наплічника: <%= sum.round(2) %> кг</h4>
   </div>
+
+  <p style="font-weight: bold; font-size: 18px;">*Даний список спорядження є рекомендованим, а не обов'язковим.</p>
 </div>
 
 
-<%= link_to 'Edit', edit_route_path(@route) %> |
-<%= link_to 'Back', routes_path %>
+<%= link_to 'Редагувати', edit_route_path(@route) %> |
+<%= link_to 'Повернутися', routes_path %>
+<div style="margin-bottom: 30px;"></div>

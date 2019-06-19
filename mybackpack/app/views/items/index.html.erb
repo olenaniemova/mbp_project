@@ -1,24 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Items</h1>
+<h1>Спорядження</h1>
 
 <div>
-  <p><%= link_to 'Season', seasons_path %> |
+  <p>
+<!--   <%= link_to 'Season', seasons_path %> |
   <%= link_to 'Item Importance', object_importances_path %> |
   <%= link_to 'Item Category', object_categories_path %> |
-  <%= link_to 'Weather Type', weather_types_path %> |
-  <%= link_to 'Producer', producers_path %>
+  <%= link_to 'Weather Type', weather_types_path %> | -->
+  <%= link_to 'Виробники', producers_path %>
   </p>
 </div>
 
-<%= link_to 'New Item', new_item_path %>
+<!--<% if current_user %>
+<%= link_to 'Додати нове спорядження', new_item_path %>
+<% end %>-->
 
   <div>
     <% @items.each do |item| %>
       <div>
         <h4><%= item.title %></h4>
-        <p><%= truncate(item.description, :length => 200, :separator => ' ')%> <%= link_to 'Read more', item %></p>
-        <p>Producer: <%= item.producer.title %> | <%= link_to 'Buy', item.source %></p>
+        <p><%= truncate(item.description, :length => 200, :separator => ' ')%> <%= link_to 'Читати більше', item %></p>
+        <p>Виробник: <%= item.producer.title %> | <%= link_to 'Купити', item.source %></p>
       </div>
     <% end %>
   </div>

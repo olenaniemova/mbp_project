@@ -76,6 +76,10 @@ class RouteItemsController < ApplicationController
     params.require(:route_item).permit(:count, :item_id, :route_id, :user_id)
   end
 
+  def route_part
+    params.require(:route_item).permit(:participants)
+  end
+
   def choose_items
     items_o = []
     items_i = current_user.user_available_items.all
@@ -95,9 +99,20 @@ class RouteItemsController < ApplicationController
     # end
     # ItemsList.create_list(weights, imports, all_items.count)
 
+    # item_list = []
+    participants = params[:rp][:participants]
 
-    #ItemsList.create_list(1, current_user.user_available_items.all, current_user.profile.bpws)  # []
+    puts "PARTI"
+    puts participants
 
-    ItemsList.create_list_group(1, [1, 2]) # {}
+    participants.delete("")
+    participants.map!(&:to_i)
+
+    if participants.empty?
+      ItemsList.create_list(1, current_user.user_available_items.all, current_user.profile.bpws)  # []
+    else
+      ItemsList.create_list_group(1, participants) # {}
+    end
+
   end
 end

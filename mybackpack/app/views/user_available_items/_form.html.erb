@@ -12,16 +12,16 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.label :item_id, value: 'Item', class: 'bmd-label-floating' %>
+    <%= form.label :item_id, value: 'Спорядження', class: 'bmd-label-floating' %>
     <%= form.select(:item_id, options_from_collection_for_select(Item.all.sort_by{ |c| c.title }, :id, :title), {}, {:class => 'form-control'})%>
   </div>
 
-  <div class="field">
-    <%= form.label :count %>
-    <%= form.number_field :count %>
+  <div class="form-group">
+    <%= form.label :count, value: 'Кількість', class: 'bmd-label-floating' %>
+    <%= form.number_field :count, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit value: 'Додати', class: 'btn btn-primary btn-raised' %>
   </div>
 <% end %>

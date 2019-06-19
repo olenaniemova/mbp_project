@@ -1,29 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Producers</h1>
+<h1>Виробники</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <div>
     <% @producers.each do |producer| %>
-      <tr>
-        <td><%= producer.title %></td>
-        <td><%= producer.description %></td>
-        <td><%= link_to 'Show', producer %></td>
-        <td><%= link_to 'Edit', edit_producer_path(producer) %></td>
-        <td><%= link_to 'Destroy', producer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div>
+        <h5><%= producer.title %></h5>
+        <p><%= truncate(producer.description, :length => 200, :separator => ' ')%> <%= link_to 'Читати більше', producer %></p>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
 
-<br>
-
-<%= link_to 'New Producer', new_producer_path %>
+<!-- <%= link_to 'New Producer', new_producer_path %> -->

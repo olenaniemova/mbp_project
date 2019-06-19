@@ -3,16 +3,19 @@
 # Class ArticlesController
 class ArticlesController < ApplicationController
   # before_action :set_article, only: [:show, :edit, :update, :destroy]
-  before_action :set_event, only: %i[edit update destroy]
-  before_action :set_event_show, only: %i[show]
+  before_action :set_article, only: %i[edit update destroy]
+  before_action :set_article_show, only: %i[show]
 
   # GET /articles
   def index
-    @articles = Article.published
+    # @articles = Article.published
+    @articles = Article.all
   end
 
   # GET /articles/1
-  def show; end
+  def show
+    @author = Profile.find(@article.user_id)
+  end
 
   # GET /articles/new
   def new
@@ -69,9 +72,10 @@ class ArticlesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_article
     @article = current_user.articles.find(params[:id])
+    # @article = Article.find(params[:id])
   end
 
-  def set_event_show
+  def set_article_show
     @article = Article.find(params[:id])
   end
 

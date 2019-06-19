@@ -1,34 +1,65 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
 
-<!-- <h1>User Available Items</h1> -->
-<h1 style="margin-bottom: 30px">Мої речі</h1>
+<div class="row">
 
-<%= link_to 'Додати річ', new_user_available_item_path %>
-<p style="margin-bottom: 30px"></p>
+<div class="col-md-2"></div>
+<div class="col-md-3">
+<h3 style="margin-bottom: 30px; margin-left: -50px">Профіль</h3>
+</div>
+<div class="col-md-7"></div>
 
-<% @categories.each do |category| %>
+<div>
+
+<div class="row" style="width: 900px; align-content: center;">
+<div class="col-md-2"></div>
+<div class="col-md-3">
+  <!-- <p><%= link_to 'User available items', user_available_items_path %></p> -->
+  <!-- <p><%= link_to 'User favorite foods', user_favorite_foods_path %></p> -->
+<!--   <p><%= link_to 'User routes', user_routes_path %></p>
+  <p><%= link_to 'User articles', user_articles_path %></p> -->
+
+  <p style="font-size: 20px"><%= link_to 'Мої дані', profile_path(current_user.id) %></p>
+  <p style="font-size: 20px"><%= link_to 'Мої статті', user_articles_path %></p>
+  <p style="font-size: 20px"><%= link_to 'Мої маршрути', user_routes_path %></p>
+  <p style="font-size: 20px"><%= link_to 'Моє спродяження', user_available_items_path %></p>
+</div>
+
+<div class="col-md-7" >
+
+  <h4 style="margin-bottom: 30px">Моє спорядження</h4>
+
+  <%= link_to 'Додати річ', new_user_available_item_path %>
+  <p style="margin-bottom: 30px"></p>
+
+  <% @categories.each do |category| %>
   <p style="font-size: 16px; font-weight: bold"><%= category %></p>
-  <table>
+  <table style="border-bottom: 1px solid black">
     <thead>
       <tr>
-        <th style="width: 250px">Назва</th>
-        <th style="padding: 4px">Кількість</th>
-        <th style="padding: 4px">Вага, кг</th>
-        <th style="padding: 4px">Індивідуальність</th>
-        <th colspan="3" style="padding: 4px"></th>
+        <th style="width: 250px; font-size: 12px;">Назва</th>
+        <th style="padding: 4px; font-size: 12px;">Кількість</th>
+        <th style="padding: 4px; font-size: 12px;">Вага, кг</th>
+        <th style="padding: 4px; font-size: 12px;">Індивідуальність</th>
+        <th style="padding: 4px"></th>
       </tr>
     </thead>
 
     <tbody>
       <% UserAvailableItem.category_items(@user_available_items, category).each do |i| %>
-        <tr>
+        <tr style="border-bottom: 1px solid black">
           <td><%= i.item.title %></td>
           <td><%= i.count %></td>
           <td><%= i.item.weight %></td>
-          <td><%= i.item.individualy %></td>
-          <td><%= link_to 'Детальніше', item_path(i.item) %></td>
-          <td><%= link_to 'Редагувати', edit_user_available_item_path(i) %></td>
-          <td><%= link_to 'Видалити', i, method: :delete, data: { confirm: 'Ви впевнені?' } %></td>
+          <td>
+            <% if i.item.individualy %>
+              індивідуальна
+            <% else %>
+              групова
+            <% end %>
+          </td>
+          <td><%= link_to 'Детальніше', item_path(i.item) %>
+          <%= link_to 'Редагувати', edit_user_available_item_path(i) %>
+          <%= link_to 'Видалити', i, method: :delete, data: { confirm: 'Ви впевнені?' } %></td>
         </tr>
       <% end %>
     </tbody>
@@ -37,3 +68,6 @@
 <% end %>
 
 <br>
+
+</div>
+</div>
